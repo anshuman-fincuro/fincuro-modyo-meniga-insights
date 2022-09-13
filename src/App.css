@@ -1,0 +1,85 @@
+.App {
+  text-align: center;
+}
+
+progress {
+  border: none;
+  width: 400px;
+  height: 40px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+progress::-webkit-progress-value {
+  background: #4B286D;
+}
+
+progress::-webkit-progress-bar {
+  background: white;
+}
+
+.first-column {
+  width: 440px;
+  height: 400px;
+  padding: 25px;
+  display: 'flex';
+  flex-wrap: 'nowrap';
+  flex-direction: 'column';
+}
+
+.first-column-title {
+  font-size: 50px;
+  color: '#4B286D';
+  font-weight:'bold';
+  padding: 20px;
+  padding-top: 5px;
+}
+
+.first-column-subpart1 {
+  padding: 50px; 
+  font-size: 40px; 
+  font-weight: 'bold';
+}
+
+.first-column-subpart2 {
+  padding: 45px; 
+  font-size: 16px; 
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 600px) {
+  progress {
+    border: none;
+    width: 300px;
+    height: 30px;
+  }
+
+  .first-column {
+    height: 300px;
+  }
+
+  .first-column-title {
+    font-size: 50px;
+  }
+
+  .first-column-subpart1 {
+    padding: 20px; 
+  }
+
+  .first-column-subpart2 {
+    padding: 13px; 
+  }
+}
+
+.chart__bubble {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+.chart__bubble .bubble {
+  fill: #a4a4a477;
+}
+
+.chart__bubble .leaf {
+  fill: #866b9c;
+}

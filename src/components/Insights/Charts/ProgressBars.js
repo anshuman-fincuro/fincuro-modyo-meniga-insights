@@ -84,12 +84,12 @@ class ProgressBars extends Component {
       <h2>Insights</h2>
       <div className='wrapper'>
         <div className='first-column insights-left'> 
-            <div className='insights-bold-text'> AUGUST 2022 </div>       
-            <div className='first-column-title'> How am I spending ?</div>   
+            <h4 className='insights-bold-text'> AUGUST 2022 </h4>       
+            <h3 className='first-column-title'> How am I spending ?</h3>   
             <div className='separter-line'></div>
-            <div className='insiiide-left-description'> 
-              <div className='first-column-subpart1'>41%</div>
-              <div className='first-column-subpart2'>lower spending on Media in July compared to what you have been spending recently</div>
+            <div className='inside-left-description'> 
+              <h2 className='first-column-subpart1'>41%</h2>
+              <p className='first-column-subpart2'>lower spending on Media in July compared to what you have been spending recently</p>
             </div>
         </div>
         <div className="insights-right">

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { SpinningCircles } from "react-loading-icons";
 import "../../../node_modules/react-bubble-chart/src/style.css";
 
 import "./../../App.css";
@@ -33,12 +34,12 @@ class Insights extends Component {
     return (
       <div>
         { (this.props.token !== null && this.props.categoriesData.length !== 0 && this.props.spendingData.length !== 0 && this.props.merchantData.length !==0 && this.props.planningData.length !== 0) ? 
-          <div style={{ display: 'flex', flexDirection: 'column', flexWrap: 'nowrap', rowGap: '50px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', flexWrap: 'nowrap', rowGap: '30px' }}>
             <ProgressBars categoriesData={this.props.categoriesData} spendingData={this.props.spendingData} />
             <BarCharts categoriesData={this.props.categoriesData} planningData={this.props.planningData} />
             <BubbleGraphs merchantData={this.props.merchantData} />
           </div>
-        : <div></div> }
+        : <SpinningCircles/> }
       </div>
     );
   }

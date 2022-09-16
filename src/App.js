@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import './App.css';
 import { setAuthToken } from './store/actions/auth-action';
 import Insights from './components/Insights/Insights';
-//import CarbonFootprint from './components/CarbonFootprint/CarbonFootprint';
+// import CarbonFootprint from './components/CarbonFootprint/CarbonFootprint';
 
 class App extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class App extends Component {
   render() {
     return (
      <Insights/>
-     //<CarbonFootprint/>
+    // <CarbonFootprint/>
     );
   }
 }

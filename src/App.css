@@ -7,7 +7,6 @@ progress {
   width: 400px;
   height: 40px;
   margin-top: 20px;
-  margin-left: 10px;
 }
 
 progress::-webkit-progress-value {
@@ -15,7 +14,7 @@ progress::-webkit-progress-value {
 }
 
 progress::-webkit-progress-bar {
-  background: white;
+  background: gainsboro;
 }
 
 .first-column {
@@ -29,26 +28,15 @@ progress::-webkit-progress-bar {
 }
 
 .first-column-title {
-  color: #4B286D;
-  font-size: 60px;
-  font-weight: 700;
-  opacity: .7;
   padding: 5px 20px 20px;
 }
 
 .first-column-subpart1 {
-  padding: 50px; 
-  font-size: 40px; 
-  font-weight: bold;
-  color: #4B286D;
-  font-weight: 700;
+  padding: 32px;
 }
 
 .first-column-subpart2 {
-  color: #000;
-  padding: 32px; 
-  font-size: 16px; 
-  opacity: 0.7;
+  padding: 32px;
 }
 
 @media screen and (max-width: 600px) {

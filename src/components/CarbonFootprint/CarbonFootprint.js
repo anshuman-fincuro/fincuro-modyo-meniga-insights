@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { SpinningCircles } from "react-loading-icons";
 
 import "./../../App.css";
 import './../../style/Base.css';
@@ -56,11 +57,10 @@ class CarbonFootprint extends Component {
       { (this.props.token !== null && this.props.categoriesData.length !== 0 && this.props.spendingData.length !== 0) ? 
         <div className="carbonFootprint-wrapper" >
           <div className="carbonFootprint-inner">
-            <div className={Styles.FirstColumn}> 
-                <div className="carbonFootprint-small-text" > Carbon Footprint </div>       
-                <div className={Styles.FirstColumnTitle}> Your total footprint this period </div>   
-                <div className={Styles.FirstColumnTitle}> is </div>   
-                <div className={Styles.FirstColumnTitle}> 350kg CO2e </div>   
+            <div className={Styles.FirstColumn}>    
+                <h3 className={Styles.FirstColumnTitle}> Your total footprint this period </h3>   
+                <h3 className={Styles.FirstColumnTitle}> is </h3>   
+                <h3 className={Styles.FirstColumnTitle}> 350kg CO2e </h3>   
                 <div className={Styles.FirstColumnLine} />
                 <Carousel>
                   <CarouselItem>It takes 17 trees one year to absorb 350kg of CO2e</CarouselItem>
@@ -94,8 +94,8 @@ class CarbonFootprint extends Component {
         {/*  */}
           <div className="footprint-lineChart">
             <div className={Styles.SecondColumn} style={{ marginTop: '50px' }}> 
-            <div className="footprint-lineChart-item"> Footprint Over Time </div>   
-            <div className="footprint-lineChart-item"> 75% reduction from the previous period </div>           
+            <h3 className="footprint-lineChart-item"> Footprint Over Time </h3>   
+            <h4 className="footprint-lineChart-item"> 75% reduction from the previous period </h4>           
               <LineCharts spendingData={this.props.spendingData} />     
             </div>
           </div>
@@ -103,7 +103,7 @@ class CarbonFootprint extends Component {
           <div className={Styles.Line} />
           <div className="footprint-horizontalBar">
             <div className={Styles.SecondColumn}> 
-              <div className="footprint-item-horizontalBar"> Footprint By Category </div>   
+              <h3 className="footprint-item-horizontalBar"> Footprint By Category </h3>   
               <HorizontalBar spendingData={this.props.spendingData} categoriesData={this.props.categoriesData}  />
             </div>
           </div>
@@ -111,7 +111,7 @@ class CarbonFootprint extends Component {
           <ProgressBars spendingData={this.props.spendingData} categoriesData={this.props.categoriesData} />
         </div>
         : 
-        <div></div> 
+        <SpinningCircles/> 
       }
       </div>
     );

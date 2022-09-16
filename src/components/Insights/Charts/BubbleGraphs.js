@@ -28,22 +28,13 @@ class BubbleGraphs extends Component {
     }
   }
 
-  handleClick = data => {
-    const isGroup = data.children !== undefined;
-
-    this.setState(() => ({
-      key: isGroup ? data.children._id : 'updated',
-      data: isGroup ? data.children : this.props.data
-    }));
-  };
-
   render() {
     return (
       <div className='wrapper barcharts'>
   
-        <div className='barcharts-contant'> 
-            <div className='barcharts-left-title'> Top Merchants </div>       
-            <div className='barcharts-left-content'> Your top merchants for the past 30 days</div>   
+        <div className='barcharts-content'> 
+            <h3 className='barcharts-left-title'> Top Merchants </h3>       
+            <p className='barcharts-left-content'> Your top merchants for the past 30 days</p>   
         </div>
 
         <div className="chart-wrapper">
@@ -52,7 +43,6 @@ class BubbleGraphs extends Component {
             className="chart__bubble"
             key={this.state.key}
             data={this.state.data}
-            onClick={this.handleClick}
           />
         </div>
       </div>

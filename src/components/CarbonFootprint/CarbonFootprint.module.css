@@ -2,20 +2,12 @@
 .FirstColumn {
   width: 750px;
   height: 300px;
-  padding: 25px;
-  display: 'flex';
-  flex-wrap: 'nowrap';
-  flex-direction: 'column';
+  padding: 25px 0px;
 }
 
 .FirstColumnTitle {
-  font-size: 40px;
-  color: #4B286D;
-  font-weight:'bold';
   padding-left: 20px;
   padding-top: 5px;
-  color: '#4B286D';
-  opacity: 0.9;
 }
 
 .FirstColumnLine {
@@ -42,7 +34,7 @@
 }
 
 .SecondColumn {
-  padding: 25px;
+  padding: 25px 0px;
   display: 'flex';
   flex-wrap: 'nowrap';
   flex-direction: 'column';
@@ -53,7 +45,6 @@ progress {
   width: 1100px;
   height: 30px;
   margin-top: 20px;
-  margin-left: 10px;
 }
 
 select {

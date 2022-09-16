@@ -43,18 +43,18 @@ class BarCharts extends Component {
     return (
       <div className='wrapper barcharts'>
         <div className="barcharts-left"> 
-            <div className='insights-bold-text'> PLANNING </div>       
-            <div className='barcharts-left-title'> How are things going ?</div>   
-            <div className='barcharts-left-content'> Comparing my actual expenses this month with my planned expenses </div>        
+            <h4 className='insights-bold-text'> PLANNING </h4>       
+            <h3 className='barcharts-left-title'> How are things going ?</h3>   
+            <p className='barcharts-left-content'> Comparing my actual expenses this month with my planned expenses </p>        
         </div>
-        <div style={{ marginTop: '50px' }}>
+        <div>
           <BarChart 
-            width={window.innerWidth < 600 ? 350 : 450}
-            height={window.innerWidth < 600 ? 150 : 300}
+            width={window.innerWidth < 600 ? 150 : 400}
+            height={window.innerWidth < 600 ? 200 : 450}
             data={this.state.data}
            
           >
-            <XAxis dataKey="Name" style={{ fontColor: '#4B286D' }}/>
+            <XAxis dataKey="Name" style={{ fontColor: '#4B286D', fontSize: '12px' }}/>
             <Tooltip />
             <Bar dataKey="Actual" fill="#4B286D" />
             <Bar dataKey="Planned" fill="#a48eb4" />

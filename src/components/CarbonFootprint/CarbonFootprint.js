@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import "./../../App.css";
+import './../../style/Base.css';
 import Styles from './CarbonFootprint.module.css';
 import Carousel, { CarouselItem } from "./Carousel/Carousel";
 
@@ -51,11 +52,12 @@ class CarbonFootprint extends Component {
   render() {
     return (
       <div>
+        <h2>CarbonFootprint</h2>
       { (this.props.token !== null && this.props.categoriesData.length !== 0 && this.props.spendingData.length !== 0) ? 
-        <div style={{ display: 'flex', flexDirection: 'column', flexWrap: 'nowrap', marginLeft: '150px' }}>
-          <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', marginBottom: '50px' }}>
+        <div className="carbonFootprint-wrapper" >
+          <div className="carbonFootprint-inner">
             <div className={Styles.FirstColumn}> 
-                <div style={{ fontSize: '15px', color: '#4B286D', opacity: '0.7', fontWeight: 'bold', padding: '20px', paddingBottom: 0 }}> Carbon Footprint </div>       
+                <div className="carbonFootprint-small-text" > Carbon Footprint </div>       
                 <div className={Styles.FirstColumnTitle}> Your total footprint this period </div>   
                 <div className={Styles.FirstColumnTitle}> is </div>   
                 <div className={Styles.FirstColumnTitle}> 350kg CO2e </div>   
@@ -67,8 +69,8 @@ class CarbonFootprint extends Component {
                   <CarouselItem>That equals about 1 round-trip flight/s from Keflavik to New York</CarouselItem>
                 </Carousel>
             </div>
-            <div style={{ marginTop: '50px' }}>
-              <select style={{ fontSize: '16px' }} value={this.state.monthSelected} onChange={this.handleMonthDropdownChange}>
+            <div className="carbonFootprint-calenderMonth">
+              <select value={this.state.monthSelected} onChange={this.handleMonthDropdownChange}>
                 <option value="January">January</option>
                 <option value="February">February</option>
                 <option value="March">March</option>
@@ -83,24 +85,25 @@ class CarbonFootprint extends Component {
                 <option value="December">December</option>
               </select>
             </div>
-            <div style={{ marginTop: '50px', marginLeft: '25px' }}>
-              <select style={{ fontSize: '16px' }} value={this.state.yearSelected} onChange={this.handleYearDropdownChange}>
+            <div className="carbonFootprint-calenderYear" >
+              <select  value={this.state.yearSelected} onChange={this.handleYearDropdownChange}>
                 <option value="2022">2022</option>
               </select>
             </div>
           </div>
-        
-          <div>
+        {/*  */}
+          <div className="footprint-lineChart">
             <div className={Styles.SecondColumn} style={{ marginTop: '50px' }}> 
-            <div style={{ fontSize: '20px', color: '#4B286D', fontWeight: 'bold', padding: '20px', paddingBottom: 0 }}> Footprint Over Time </div>   
-            <div style={{ fontSize: '15px', color: '#4B286D', fontWeight: 'bold', padding: '20px', paddingBottom: 0 }}> 75% reduction from the previous period </div>           
+            <div className="footprint-lineChart-item"> Footprint Over Time </div>   
+            <div className="footprint-lineChart-item"> 75% reduction from the previous period </div>           
               <LineCharts spendingData={this.props.spendingData} />     
             </div>
           </div>
+          {/*  */}
           <div className={Styles.Line} />
-          <div>
+          <div className="footprint-horizontalBar">
             <div className={Styles.SecondColumn}> 
-              <div style={{ fontSize: '20px', color: '#4B286D', fontWeight: 'bold', padding: '20px', paddingBottom: 0 }}> Footprint By Category </div>   
+              <div className="footprint-item-horizontalBar"> Footprint By Category </div>   
               <HorizontalBar spendingData={this.props.spendingData} categoriesData={this.props.categoriesData}  />
             </div>
           </div>

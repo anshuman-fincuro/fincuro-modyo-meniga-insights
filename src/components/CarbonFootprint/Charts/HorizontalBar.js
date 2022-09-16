@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import HSBar from "react-horizontal-stacked-bar-chart";
 
 import './../../../App.css';
+import './../../../style/Base.css';
 
 class HorizontalBar extends Component {
 
@@ -78,7 +79,7 @@ class HorizontalBar extends Component {
     }
 
     return (
-      <div style={{ width: '1150px', padding: '20px', textAlign: 'center' }}>
+      <div className="HSBar-container">
         <HSBar
           showTextIn
           showTextWithValue

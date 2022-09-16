@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { ProgressBar } from '@meniga/ui';
 
 import './../../../App.css';
+import './../../../style/Base.css';
 
 class ProgressBars extends Component {
 
@@ -68,32 +69,34 @@ class ProgressBars extends Component {
   
     for (const every of shuffledData.slice(0, 5)) {
       progressItems.push(
-        <div style={{ display: 'flex', flexDirection: 'column', flexWrap: 'nowrap' }}> 
+        <div className='progress-wrapper'> 
             <ProgressBar key={every.category} value={every.percentage} total={100} animate={true} showValue={true} />
-            <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', justifyContent: 'space-between', width: '500px' }}>
-              <div style={{ marginLeft: '10px', fontSize: '13px', color: 'black' }}>{ String(every.category).toUpperCase() }</div>
-              <div style={{ fontSize: '15px', fontWeight: '600', color: '#4B286D' }}>$ { every.amount }</div>
+            <div className='progress-items-wrap'>
+              <div className='progress-items'>{ String(every.category).toUpperCase() }</div>
+              <div className='progress-items'>$ { every.amount }</div>
             </div>
         </div>
       );
     }
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-evenly' }}>
-
-        <div className='first-column'> 
-            <div style={{ fontSize: '15px', color: '#4B286D', opacity: '0.7', fontWeight: 'bold', padding: '20px', paddingBottom: 0 }}> AUGUST 2022 </div>       
-            <div className='first-column-title' style={{ color: '#4B286D', opacity: '0.9' }}> How am I spending ?</div>   
-            <div style={{ height: '5px', background: '#4B286D', width: '150px', marginLeft: '20px', marginTop: '10px' }}></div>
-            <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'nowrap' }}> 
-              <div className='first-column-subpart1' style={{ color: '#4B286D', fontWeight: '500' }}>41%</div>
-              <div className='first-column-subpart2' style={{ color: '#4B286D'}}>lower spending on Media in July compared to what you have been spending recently</div>
+      <>
+      <h2>Insights</h2>
+      <div className='wrapper'>
+        <div className='first-column insights-left'> 
+            <div className='insights-bold-text'> AUGUST 2022 </div>       
+            <div className='first-column-title'> How am I spending ?</div>   
+            <div className='separter-line'></div>
+            <div className='insiiide-left-description'> 
+              <div className='first-column-subpart1'>41%</div>
+              <div className='first-column-subpart2'>lower spending on Media in July compared to what you have been spending recently</div>
             </div>
         </div>
-        <div style={{ width: '500px', paddingTop: '30px' }}>
+        <div className="insights-right">
           { progressItems }
         </div>
       </div>
+      </>
     );
   }
 }

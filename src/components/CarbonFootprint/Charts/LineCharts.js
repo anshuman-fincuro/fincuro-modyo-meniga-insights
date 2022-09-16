@@ -3,6 +3,7 @@ import { LineChart, Line, XAxis, YAxis, Tooltip } from "recharts";
 import * as moment from 'moment';
 
 import './../../../App.css';
+import './../../../style/Base.css';
 
 class LineCharts extends Component {
 
@@ -58,7 +59,7 @@ class LineCharts extends Component {
 
   render() {
     return (
-      <div style={{ marginTop: '50px' }}>
+      <div className="lineChart-container">
         <LineChart layout="horizontal" width={1200} height={300} data={this.state.data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
           <XAxis dataKey="name" padding={{ left: 50, right: 50 }} />
           <YAxis />

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactBubbleChart from "react-bubble-chart";
 
 import './../../../App.css';
+import './../../../style/Base.css';
 
 class BubbleGraphs extends Component {
 
@@ -38,14 +39,14 @@ class BubbleGraphs extends Component {
 
   render() {
     return (
-      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', height: '400px', justifyContent: 'space-evenly' }}>
+      <div className='wrapper barcharts'>
   
-        <div style={{ width: '440px', padding: '25px' }}> 
-            <div style={{ fontSize: '35px', color: '#4B286D',fontWeight: 'bold', padding: '20px', opacity: '0.9'  }}> Top Merchants </div>       
-            <div style={{ fontSize: '25px', color: '#4B286D', padding: '20px', paddingTop: '5px' }}> Your top merchants for the past 30 days</div>   
+        <div className='barcharts-contant'> 
+            <div className='barcharts-left-title'> Top Merchants </div>       
+            <div className='barcharts-left-content'> Your top merchants for the past 30 days</div>   
         </div>
 
-        <div style={{ width: "500px" }}>
+        <div className="chart-wrapper">
           <ReactBubbleChart
             {...this.props}
             className="chart__bubble"

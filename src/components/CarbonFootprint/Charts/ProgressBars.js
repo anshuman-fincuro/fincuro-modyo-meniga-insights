@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { ProgressBar } from '@meniga/ui';
 
 import './../../../App.css';
+import './../../../style/Base.css';
 
 class ProgressBars extends Component {
 
@@ -67,18 +68,18 @@ class ProgressBars extends Component {
     const progressItems = [];
     for (const every of progressData.slice(0, 5)) {
       progressItems.push(
-        <div style={{ display: 'flex', flexDirection: 'column', flexWrap: 'nowrap' }}>
+        <div className="carbonFootprint-progressBar">
           <ProgressBar key={every.category} value={every.percentage} total={100} animate={true} showValue={true} />
-          <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', paddingTop: '10px', justifyContent: 'space-between' }}>
-            <div style={{ marginLeft: '10px', fontSize: '13px', paddingTop: '5px', color: '#4B286D' }}> { every.category.toUpperCase() } </div>
-            <div style={{ fontSize: '15px', fontWeight: '600', color: '#4B286D' }}>{ every.carbonFootprint} kg</div>
+          <div className="progressBar-wrapper">
+            <div className="progressBar-item"> { every.category.toUpperCase() } </div>
+            <div className="progressBar-item">{ every.carbonFootprint} kg</div>
           </div>
         </div>
       );
     }
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', flexWrap: 'nowrap', marginLeft: '20px', padding: '20px', width: '1100px' }}>
+      <div className="progressBar-item-wrap">
         { progressItems } 
       </div>
     );

@@ -22,27 +22,31 @@ progress::-webkit-progress-bar {
   width: 440px;
   height: 400px;
   padding: 25px;
+  padding-left: 0;
   display: 'flex';
   flex-wrap: 'nowrap';
   flex-direction: 'column';
 }
 
 .first-column-title {
-  font-size: 50px;
-  color: '#4B286D';
-  font-weight:'bold';
-  padding: 20px;
-  padding-top: 5px;
+  color: #4B286D;
+  font-size: 60px;
+  font-weight: 700;
+  opacity: .7;
+  padding: 5px 20px 20px;
 }
 
 .first-column-subpart1 {
   padding: 50px; 
   font-size: 40px; 
-  font-weight: 'bold';
+  font-weight: bold;
+  color: #4B286D;
+  font-weight: 700;
 }
 
 .first-column-subpart2 {
-  padding: 45px; 
+  color: #000;
+  padding: 32px; 
   font-size: 16px; 
   opacity: 0.7;
 }

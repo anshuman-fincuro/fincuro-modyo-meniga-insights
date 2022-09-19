@@ -82,7 +82,7 @@
     margin-top: 50px;
     width: 400px;
 }
-
+  /* end  */
 /* CarbonFootprint start */
 .carbonFootprint-wrapper {
     display: flex;
@@ -175,4 +175,198 @@
     width: 1150px;
      padding: 20px;
       text-align: center;
+}
+/* end  */
+/* account Dropdown start*/
+.account-warapper ul {
+    list-style-type: none;
+    display: flex;
+    padding-left: 0;
+}
+.accountMenuItem{
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 12px 60px 12px 24px;
+}
+.amountWithLabel {
+    font-size: 12px  !important;
+}
+.amountWithLabel-amount{
+    font-size: 15px;
+    line-height: 17px;
+}
+.brown-color{
+ color: #a5420e;
+}
+.green-color{
+ color: #4a783b;
+}
+.purple-color{
+ color:#593f72;
+}
+.amountWithLabel .amountWithLabel-label {
+color:#666666;
+text-transform: uppercase;
+display: block;
+margin: 0;
+}
+.amountWithLabel-amount {
+    font-size: 15px;
+    line-height: 17px;
+    font-weight: bold
+}
+.account-warapper ul li {
+    height: 80px;
+    border: 1px solid #e6e6e6; 
+    background: #ffffff;
+    flex-wrap: nowrap;
+    padding: 0;
+    box-shadow: 0 0 10px rgb(0 0 0 / 5%);
+    width: 33.3%;
+}
+.account-warapper ul li:first-child {
+border-top-left-radius: 6px;
+border-bottom-left-radius: 6px;
+}
+.account-warapper ul li:last-child {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    }
+.accountMenuItem .Icon-normal {
+    font-size: 16px;
+    color: #4d4d4d;
+}
+.bugdet-warapper{
+    background: #ffffff;
+    border: 1px solid #e6e6e6;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 12%);
+    /* margin-bottom: 24px; */
+    /* width: 33.3%; */
+}
+.budgetEquationContainer-header {
+    padding: 12px;
+    padding-bottom: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+.budgetEquationContainer-header-icon {
+    margin-right: 12px;
+    cursor: pointer;
+}
+.budgetEquationContainer-header .Heading {
+    margin: 6px 0;
+    font-size: 14px;
+    line-height: 17.5px;
+    font-weight: bold;
+}
+.budgetEquation-data-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 6px;
+}
+.text {
+    font-size: 14px;
+    line-height: 21px;
+    vertical-align: middle;
+}
+.bold {
+    font-weight: bold;
+}
+.budgetEquationContainer-data {
+    padding: 0 12px;
+    margin-bottom: 12px;
+}
+.budgetEquation-item-left, .budgetEquation-item-right{
+    padding: 12px;
+}
+.budgetEquation-data-item:hover,
+.budgetEquation-data-item.active {
+    background-color: #F0F7EE;
+}
+.budgetEquation-data-item:hover .content,
+.budgetEquation-data-item.active .content{
+    color: #4A783B;
+    font-size: 16px;
+}
+.budgetEquation-data-item:hover .text,
+.budgetEquation-data-item.active .text{
+    color: #4A783B;
+    font-size: 16px;
+}
+.budgetEquationContainer-header-title h3 {
+    font-size: 14px;
+}
+.budgetEquationContainer-select select {
+    border-radius: 0;
+    border: none;
+    color: #566B76;
+    font-size: 12px;
+} 
+.budgetEquationContainer-select select:focus-visible,
+.budgetEquationContainer-select select:hover {
+    border-radius: 0;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #000;
+} 
+/* CarouselNew start */
+.carousel-warapper .carousel-item div{
+    background-color: #f1f1f1;
+    padding: 20px;
+    border:1px solid #D8D8D8!important;
+}
+.carousel-warapper .carousel .control-dots .dot {
+background: #b7b7b7;
+}
+.carousel-status{
+    display: none;
+}
+.carousel-warapper .carousel .control-dots .dot.selected {
+    width: 30px;
+    border-radius: 20px;
+    box-shadow: none;
+}
+.carousel-warapper .carousel.carousel-slider {
+overflow: visible;
+}
+.carousel-warapper .carousel .control-dots {
+    bottom: -46px;
+}
+.carousel-warapper  .control-prev, .control-next {
+display: none;
+}
+.carousel-warapper {
+    margin-bottom: 50px;
+}
+.arrow-icon svg{
+width: 14px;
+}
+.account-warapper ul li:hover{
+    background: #F4F4F0;
+}
+.account-top-bar {
+    background-color: #F4F4F0;
+    padding: 10px 26px;
+    margin-bottom: 60px;
+}
+.budget-container {
+    background-color: #F4F4F0;
+    padding: 10px;
+}
+.budget-detail-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+.budget-detail-wrap div {
+    flex: 0 0 33%;
+}
+.unpayed-bill-wrap {
+    font-size: 18px;
+    text-align: center;
 }

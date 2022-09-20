@@ -377,7 +377,7 @@ width: 14px;
     flex-wrap: wrap;
 }
 .budget-detail-wrap .budget-flex {
-    flex: 0 0 33%;
+    flex: 0 0 28%;
 }
 .unpayed-bill-wrap {
     font-size: 18px;
@@ -415,7 +415,7 @@ width: 14px;
     font-weight: bold;
 }
 .bill-content{
-width: 300px;
+width: 200px;
 }
 /* Expenses by categories */
    progress{

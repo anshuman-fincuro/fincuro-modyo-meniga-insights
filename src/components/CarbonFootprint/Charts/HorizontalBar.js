@@ -80,10 +80,11 @@ class HorizontalBar extends Component {
 
     return (
       <div className="HSBar-container">
+        <div className="HSbar-headig">Footprint by category</div>
         <HSBar
           showTextIn
           showTextWithValue
-          height={50}
+          height={40}
           data={percentageData}
           />
       </div>

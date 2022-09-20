@@ -4,7 +4,7 @@ import { ProgressBar } from '@meniga/ui';
 import './../../../App.css';
 import './../../../style/Base.css';
 
-class ProgressBars extends Component {
+class ProgressBarsExpenses extends Component {
 
   constructor(props) {
     super(props);
@@ -86,4 +86,4 @@ class ProgressBars extends Component {
   }
 }
 
-export default ProgressBars;
+export default ProgressBarsExpenses;

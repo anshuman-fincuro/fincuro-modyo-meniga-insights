@@ -39,7 +39,8 @@
 }
 
 .barcharts-left-title {
-    padding: 10px 20px;
+    padding: 20px;
+    color: #4b286d;
 }
 
 .barcharts-left-content {
@@ -125,6 +126,7 @@
 .carousel-item {
     float: inherit;
     margin-right: auto;
+    margin: 0px 20px;
 }
 
 .footprint-lineChart div .footprint-lineChart-item {
@@ -146,7 +148,7 @@
     display: flex;
      flex-direction: row;
       flex-wrap: nowrap; 
-      padding-top: 10px; 
+      padding-top: 2px; 
       justify-content: space-between;
 }
 .progressBar-wrapper.progressBar-item:first-child{
@@ -165,14 +167,14 @@
     flex-direction: column;
     flex-wrap: nowrap;
     margin-left: 20px;
-    padding: 20px 0px;
+    padding:0px;
     width: 1100px 
 }
 .lineChart-container {
    margin-top: 50px;
 }
 .HSBar-container {
-    width: 1150px;
+    width: 100%;
      padding: 20px;
       text-align: center;
 }
@@ -269,6 +271,7 @@ border-bottom-left-radius: 6px;
     align-items: center;
     justify-content: space-between;
     border-radius: 6px;
+    margin-bottom: 12px;
 }
 .text {
     font-size: 14px;
@@ -283,24 +286,25 @@ border-bottom-left-radius: 6px;
     margin-bottom: 12px;
 }
 .budgetEquation-item-left, .budgetEquation-item-right{
-    padding: 12px;
+    padding: 16px 12px;
 }
 .budgetEquation-data-item:hover,
 .budgetEquation-data-item.active {
-    background-color: #F0F7EE;
+    background-color: #f8edff;
 }
 .budgetEquation-data-item:hover .content,
 .budgetEquation-data-item.active .content{
-    color: #4A783B;
+    color: #4b286d;
     font-size: 16px;
 }
 .budgetEquation-data-item:hover .text,
 .budgetEquation-data-item.active .text{
-    color: #4A783B;
+    color: #4b286d;
     font-size: 16px;
 }
 .budgetEquationContainer-header-title h3 {
     font-size: 14px;
+    color: #4b286d;
 }
 .budgetEquationContainer-select select {
     border-radius: 0;
@@ -362,11 +366,138 @@ width: 14px;
 .budget-detail-wrap {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
-.budget-detail-wrap div {
+.budget-detail-wrap .budget-flex {
     flex: 0 0 33%;
 }
 .unpayed-bill-wrap {
     font-size: 18px;
     text-align: center;
+    padding: 20px 0px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
 }
+.expeses-wrapper {
+    background-color: #fff;
+    padding: 0 18px;
+}
+.merchents-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+.merchents-left {
+    width: 50%;
+}
+/* Expenses by categories */
+   progress{
+   height: 20px;
+}
+.expeses-wrapper .progress-items {
+    font-size: 10px;
+}
+.expeses-wrapper .budget-detail-wrap div {
+    flex: none;
+}
+.expeses-wrapper .insights-right {
+    padding-top: 4px;
+}
+.merchents-wrap .progressBar-item-wrap {
+    width: auto;
+}
+
+.merchents-wrap .merchents-right {
+    text-align: center;
+    width: 50%;
+}
+.merchents-wrap .merchents-right .wrapper{
+    display: block;
+    height: auto;
+    background-color: #f4f4f0;
+    text-align: center;
+    width: 350px;
+    margin: 0 auto;
+}
+.merchents-wrap .merchents-right .barcharts-content {
+    width: auto;
+    padding: 0;
+    padding-left: 0;
+}
+.merchents-wrap .merchents-right .chart-wrapper {
+    margin-top: 0px; 
+    width: auto;
+    padding-bottom: 50px;
+}
+.merchents-wrap .progressBar-item {
+    font-size: 10px;
+}
+.merchents-left .progress {
+width: 100%;
+}
+.merchents-wrap hr {
+margin: 0;
+margin-left: 20px;
+}
+/* hsbar */
+.HSbar-headig{
+    text-align: left;
+    padding: 12px 0px;
+  }
+.expeses-wrapper progress,
+.merchents-wrap  progress{
+    margin-top: 10px;
+}
+/*  */
+@media (max-width: 768px){
+.account-warapper ul{
+    flex-direction: column;
+}
+.accountMenuItem {
+    padding: 12px 16px;
+}
+.account-warapper ul li {
+    height: 100%;
+}
+.arrow-icon svg {
+    width: 10px;
+}
+.account-warapper ul li:first-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.account-warapper ul li:last-child {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.account-top-bar {
+    padding: 10px 16px;
+}
+.budget-detail-wrap {
+    flex-direction: column;
+}
+.budget-detail-wrap div{
+    flex: 0%;
+}
+.account-warapper ul li {
+    width: 100%;
+}
+.unpayed-bill-wrap {
+
+}
+.merchents-wrap {
+    flex-direction: column;
+}
+.merchents-left {
+    width: 100%;
+    margin-bottom: 30px;
+}
+.merchents-wrap .merchents-right {
+    width: 100%;
+}
+.merchents-wrap .merchents-right .wrapper {
+    width: 320px;
+}
+  }
+  

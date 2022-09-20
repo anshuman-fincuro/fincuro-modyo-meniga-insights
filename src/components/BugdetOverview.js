@@ -67,10 +67,10 @@ class BugdetOverview extends Component {
       
         <select>
           <option value="fruit">Lasy year</option>
-          <option value="vegetable">Last months</option>
-          <option value="meat">Last 1 month</option>
-          <option value="vegetable">Last 3 month </option>
-          <option value="meat">Last 6 month</option>
+          <option value="vegetable">Last year</option>
+          <option value="meat">Last 1 year</option>
+          <option value="vegetable">Last 3 year</option>
+          <option value="meat">Last 6 year</option>
         </select>
       
               </div>

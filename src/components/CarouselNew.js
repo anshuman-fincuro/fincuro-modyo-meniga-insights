@@ -7,19 +7,19 @@ import { Carousel } from 'react-responsive-carousel';
 class CarouselNew extends Component {
   render() {
     return (
-      <div className="carousel-warapper">
+      <div className="carousel-wrapper">
           <Carousel autoPlay infiniteLoop showArrows={true}>
-                <div className="carousel-item">
-                <div><h2>Alerts Carousel1</h2></div>
+                <div className="carousel-child">
+                  <h2>Alerts Carousel 1</h2>
                 </div>
-                <div className="carousel-item">
-                <div><h2>Alerts Carousel2</h2></div>
+                <div className="carousel-child">
+                  <h2>Alerts Carousel 2</h2>
                 </div>
-                <div className="carousel-item">
-                <div><h2>Alerts Carousel3</h2></div>
+                <div className="carousel-child">
+                  <h2>Alerts Carousel 3</h2>
                 </div>
-                <div className="carousel-item">
-                <div><h2>Alerts Carousel4</h2></div>
+                <div className="carousel-child">
+                  <h2>Alerts Carousel 4</h2>
                 </div>
             </Carousel>
       </div>

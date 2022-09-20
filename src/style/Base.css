@@ -167,6 +167,7 @@
     flex-direction: column;
     flex-wrap: nowrap;
     margin-left: 20px;
+    margin-right: 16px;
     padding:0px;
     width: 1100px 
 }
@@ -175,8 +176,9 @@
 }
 .HSBar-container {
     width: 100%;
-     padding: 20px;
+     padding: 0px;
       text-align: center;
+      margin-left: 20px;
 }
 /* end  */
 /* account Dropdown start*/
@@ -200,10 +202,10 @@
     line-height: 17px;
 }
 .brown-color{
- color: #a5420e;
+ color: #f45516;
 }
 .green-color{
- color: #4a783b;
+ color: #2b8000;
 }
 .purple-color{
  color:#593f72;
@@ -325,8 +327,11 @@ border-bottom-left-radius: 6px;
     padding: 20px;
     border:1px solid #D8D8D8!important;
 }
+.carousel .control-arrow, .carousel.carousel-slider .control-arrow {
+    opacity: 1;
+}
 .carousel-warapper .carousel .control-dots .dot {
-background: #b7b7b7;
+background: #4b286d;
 }
 .carousel-status{
     display: none;
@@ -342,8 +347,11 @@ overflow: visible;
 .carousel-warapper .carousel .control-dots {
     bottom: -46px;
 }
-.carousel-warapper  .control-prev, .control-next {
-display: none;
+.carousel .control-next.control-arrow:before {
+    border-left: 8px solid #4b286d !important;
+}
+.carousel .control-prev.control-arrow:before {
+    border-right: 8px solid #4b286d !important;
 }
 .carousel-warapper {
     margin-bottom: 50px;
@@ -387,9 +395,27 @@ width: 14px;
 .merchents-wrap {
     display: flex;
     justify-content: space-between;
+    margin: 40px 0px;
 }
 .merchents-left {
     width: 50%;
+}
+/* bills number  */
+.bill-number-text{
+    border: 1px solid #4b286d;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 29px;
+    color: #4b286d;;
+    margin-right: 24px;
+    font-weight: bold;
+}
+.bill-content{
+width: 300px;
 }
 /* Expenses by categories */
    progress{
@@ -428,7 +454,7 @@ width: 14px;
 .merchents-wrap .merchents-right .chart-wrapper {
     margin-top: 0px; 
     width: auto;
-    padding-bottom: 50px;
+    padding: 10px 0px 30px;
 }
 .merchents-wrap .progressBar-item {
     font-size: 10px;
@@ -451,6 +477,22 @@ margin-left: 20px;
 }
 /*  */
 @media (max-width: 768px){
+    .HSBar-container {
+        width: auto;
+    }
+    .expeses-wrapper .insights-right {
+        width: 100%;
+    }
+    .bill-content {
+        width: 100%;
+    }
+    .bill-number-text {
+        margin-right: 0px;
+        margin-bottom: 10px;
+    }
+    .unpayed-bill-wrap {
+        flex-direction: column;
+    }
 .account-warapper ul{
     flex-direction: column;
 }
@@ -477,14 +519,17 @@ margin-left: 20px;
 .budget-detail-wrap {
     flex-direction: column;
 }
-.budget-detail-wrap div{
+/* .budget-detail-wrap div{
+    flex: 0%;
+} */
+.budget-detail-wrap .budget-flex {
     flex: 0%;
 }
 .account-warapper ul li {
     width: 100%;
 }
 .unpayed-bill-wrap {
-
+flex: auto !important;
 }
 .merchents-wrap {
     flex-direction: column;

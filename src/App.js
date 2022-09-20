@@ -73,7 +73,8 @@ class App extends Component {
         </div>
         {/*  */}
         <div className='unpayed-bill-wrap budget-flex'>
-        <span className='bold'>unpayed bill in next 30 days 12345</span>
+        <div className='bill-number-text'>5</div>
+        <span className='bold bill-content'>Unpayed bill in next 30 days £ 1,209.50</span>
         </div>
         {/*  */}
          <div className='budget-container budget-flex expeses-container'>

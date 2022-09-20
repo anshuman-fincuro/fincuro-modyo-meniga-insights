@@ -80,7 +80,7 @@ class HorizontalBar extends Component {
 
     return (
       <div className="HSBar-container">
-        <div className="HSbar-headig">Footprint by category</div>
+        <div className="HSbar-headig">Carbon Footprint by category</div>
         <HSBar
           showTextIn
           showTextWithValue

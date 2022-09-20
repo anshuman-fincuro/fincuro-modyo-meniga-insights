@@ -8,7 +8,7 @@ class CarouselNew extends Component {
   render() {
     return (
       <div className="carousel-warapper">
-          <Carousel autoPlay infiniteLoop>
+          <Carousel autoPlay infiniteLoop showArrows={true}>
                 <div className="carousel-item">
                 <div><h2>Alerts Carousel1</h2></div>
                 </div>

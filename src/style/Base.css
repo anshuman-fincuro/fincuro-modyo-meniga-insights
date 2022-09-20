@@ -322,7 +322,7 @@ border-bottom-left-radius: 6px;
     border-bottom: 1px solid #000;
 } 
 /* CarouselNew start */
-.carousel-warapper .carousel-item div{
+.carousel-wrapper .carousel-child {
     background-color: #f1f1f1;
     padding: 20px;
     border:1px solid #D8D8D8!important;
@@ -330,21 +330,21 @@ border-bottom-left-radius: 6px;
 .carousel .control-arrow, .carousel.carousel-slider .control-arrow {
     opacity: 1;
 }
-.carousel-warapper .carousel .control-dots .dot {
+.carousel-wrapper .carousel .control-dots .dot {
 background: #4b286d;
 }
 .carousel-status{
     display: none;
 }
-.carousel-warapper .carousel .control-dots .dot.selected {
+.carousel-wrapper .carousel .control-dots .dot.selected {
     width: 30px;
     border-radius: 20px;
     box-shadow: none;
 }
-.carousel-warapper .carousel.carousel-slider {
+.carousel-wrapper .carousel.carousel-slider {
 overflow: visible;
 }
-.carousel-warapper .carousel .control-dots {
+.carousel-wrapper .carousel .control-dots {
     bottom: -46px;
 }
 .carousel .control-next.control-arrow:before {
@@ -353,13 +353,13 @@ overflow: visible;
 .carousel .control-prev.control-arrow:before {
     border-right: 8px solid #4b286d !important;
 }
-.carousel-warapper {
+.carousel-wrapper {
     margin-bottom: 50px;
 }
 .arrow-icon svg{
 width: 14px;
 }
-.account-warapper ul li:hover{
+.account-wrapper ul li:hover{
     background: #F4F4F0;
 }
 .account-top-bar {

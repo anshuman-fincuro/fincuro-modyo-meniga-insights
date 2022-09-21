@@ -41,10 +41,11 @@
 .barcharts-left-title {
     padding: 20px;
     color: #4b286d;
+    padding-bottom: 14px;
 }
 
 .barcharts-left-content {
-    padding: 20px;
+    /* padding: 20px; */
     padding-top: 5px;
 }
 
@@ -186,6 +187,7 @@
     list-style-type: none;
     display: flex;
     padding-left: 0;
+    margin-bottom: 0;
 }
 .accountMenuItem{
     cursor: pointer;
@@ -222,11 +224,11 @@ margin: 0;
     font-weight: bold
 }
 .account-warapper ul li {
-    height: 80px;
+    /* height: 80px; */
     border: 1px solid #e6e6e6; 
     background: #ffffff;
     flex-wrap: nowrap;
-    padding: 0;
+    padding: 10px 0px;
     box-shadow: 0 0 10px rgb(0 0 0 / 5%);
     width: 33.3%;
 }
@@ -400,6 +402,17 @@ width: 14px;
 .merchents-left {
     width: 50%;
 }
+.bubble-chart-container .bubble-chart-text .bubble-label.medium {
+    font-size: 12px;
+    color: #fff;
+    word-break: break-word;
+}
+.bubble-chart-container .bubble-chart-text .bubble-label.small {
+    font-size: 12px;
+    color: #fff;
+    text-transform: lowercase;
+    line-height: 13px;
+}
 /* bills number  */
 .bill-number-text{
     border: 1px solid #4b286d;
@@ -437,6 +450,7 @@ width: 200px;
 .merchents-wrap .merchents-right {
     text-align: center;
     width: 50%;
+    padding-left: 112px;
 }
 .merchents-wrap .merchents-right .wrapper{
     display: block;
@@ -445,6 +459,7 @@ width: 200px;
     text-align: center;
     width: 350px;
     margin: 0 auto;
+    margin-top: 44px;
 }
 .merchents-wrap .merchents-right .barcharts-content {
     width: auto;
@@ -540,6 +555,7 @@ flex: auto !important;
 }
 .merchents-wrap .merchents-right {
     width: 100%;
+    padding-left: 0;
 }
 .merchents-wrap .merchents-right .wrapper {
     width: 320px;

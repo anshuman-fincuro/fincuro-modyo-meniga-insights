@@ -9,6 +9,7 @@ import AccountDropdown from './components/AccountDropdown';
 import BugdetOverview from './components/BugdetOverview';
 import { setCategoriesData, setMerchantData, setPlanningData, setSpendingData } from "./store/actions/component-action";
 import CarouselNew from './components/CarouselNew';
+import BillingTable from './components/BillingTable';
 import BubbleGraphs from './components/Insights/Charts/BubbleGraphs'
 import ProgressBars from './components/Insights/Charts/ProgressBars';
 import ProgressBarsExpenses from "./components/CarbonFootprint/Charts/ProgressBars";
@@ -72,9 +73,12 @@ class App extends Component {
       <BugdetOverview></BugdetOverview>
         </div>
         {/*  */}
-        <div className='unpayed-bill-wrap budget-flex'>
-        <div className='bill-number-text'>5</div>
-        <span className='bold bill-content'>Unpayed bill in next 30 days £ 1,209.50</span>
+        <div className='budget-detail-wrap budget-flex'>
+        <div className='merchents-wrapper'>
+        <HorizontalBar spendingData={this.props.spendingData} categoriesData={this.props.categoriesData}  />
+        <hr/>
+       <ProgressBarsExpenses spendingData={this.props.spendingData} categoriesData={this.props.categoriesData} />
+        </div>
         </div>
         {/*  */}
          <div className='budget-container budget-flex expeses-container'>
@@ -82,18 +86,20 @@ class App extends Component {
         </div>
       </div>
       {/* end */}
-      <div className='merchents-wrap'>
-        <div className='merchents-left'>
-        <HorizontalBar spendingData={this.props.spendingData} categoriesData={this.props.categoriesData}  />
-        <hr/>
-       <ProgressBarsExpenses spendingData={this.props.spendingData} categoriesData={this.props.categoriesData} />
+      <div className='top-merchents-wrap'>
+        <div className='unpayed-bill-wrap '>
+        <div className='bill-number-text'>5</div>
+        <span className='bold bill-content'>Unpayed bill in next 30 days £ 1,209.50</span>
         </div>
-      <div className='merchents-right'>
-      <BubbleGraphs merchantData={this.props.merchantData} />
-      </div>
+        <div className='bubblegraph-wrapper'>
+        <BubbleGraphs merchantData={this.props.merchantData} />
+        </div>
       
       </div>
+      {/*  */}
+      {/* <BillingTable></BillingTable> */}
       </div>
+      
     :
     <SpinningCircles/> }
       </div>

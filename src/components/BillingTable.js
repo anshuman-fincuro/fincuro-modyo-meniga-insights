@@ -14,11 +14,11 @@ class BillingTable extends Component {
             <div className="billingTable-row">
                 <div className="billingTable-left">
                     <div className="billingTable-icon"><Icon path={mdiCardAccountDetails}
-        size={1}
+        size={2}
         horizontal
         vertical
         rotate={180}
-        color="#4b286d"/></div>
+        color="#1c242c"/></div>
                     <div className="billingTable-date"> <span>19</span> <span>sep</span></div>
                 </div>
                 <div className="billingTable-right">
@@ -42,11 +42,11 @@ class BillingTable extends Component {
             <div className="billingTable-row">
                 <div className="billingTable-left">
                     <div className="billingTable-icon"><Icon path={mdiCar}
-        size={1}
+        size={2}
         horizontal
         vertical
         rotate={180}
-        color="#4b286d"/></div>
+        color="#1c242c"/></div>
                     <div className="billingTable-date"> <span>17</span> <span>sep</span></div>
                 </div>
                 <div className="billingTable-right">
@@ -70,11 +70,11 @@ class BillingTable extends Component {
             <div className="billingTable-row">
                 <div className="billingTable-left">
                     <div className="billingTable-icon"><Icon path={mdiCardAccountDetails}
-        size={1}
+        size={2}
         horizontal
         vertical
         rotate={180}
-        color="#4b286d"/></div>
+        color="#1c242c"/></div>
                     <div className="billingTable-date"> <span>18</span> <span>sep</span></div>
                 </div>
                 <div className="billingTable-right">
@@ -98,11 +98,11 @@ class BillingTable extends Component {
             <div className="billingTable-row">
                 <div className="billingTable-left">
                     <div className="billingTable-icon"><Icon path={mdiCar}
-        size={1}
+        size={2}
         horizontal
         vertical
         rotate={180}
-        color="#4b286d"/></div>
+        color="#1c242c"/></div>
                     <div className="billingTable-date"> <span>19</span> <span>sep</span></div>
                 </div>
                 <div className="billingTable-right">
@@ -126,11 +126,11 @@ class BillingTable extends Component {
             <div className="billingTable-row">
                 <div className="billingTable-left">
                     <div className="billingTable-icon"><Icon path={mdiCardAccountDetails}
-        size={1}
+        size={2}
         horizontal
         vertical
         rotate={180}
-        color="#4b286d"/></div>
+        color="#1c242c"/></div>
                     <div className="billingTable-date"> <span>17</span> <span>sep</span></div>
                 </div>
                 <div className="billingTable-right">
@@ -154,11 +154,11 @@ class BillingTable extends Component {
             <div className="billingTable-row">
                 <div className="billingTable-left">
                     <div className="billingTable-icon"><Icon path={mdiCar}
-        size={1}
+        size={2}
         horizontal
         vertical
         rotate={180}
-        color="#4b286d"/></div>
+        color="#1c242c"/></div>
                     <div className="billingTable-date"> <span>18</span> <span>sep</span></div>
                 </div>
                 <div className="billingTable-right">
@@ -182,11 +182,11 @@ class BillingTable extends Component {
             <div className="billingTable-row">
                 <div className="billingTable-left">
                     <div className="billingTable-icon"><Icon path={mdiCardAccountDetails}
-        size={1}
+        size={2}
         horizontal
         vertical
         rotate={180}
-        color="#4b286d"/></div>
+        color="#1c242c"/></div>
                     <div className="billingTable-date"> <span>19</span> <span>sep</span></div>
                 </div>
                 <div className="billingTable-right">
@@ -210,11 +210,11 @@ class BillingTable extends Component {
             <div className="billingTable-row">
                 <div className="billingTable-left">
                     <div className="billingTable-icon"><Icon path={mdiCardAccountDetails}
-        size={1}
+        size={2}
         horizontal
         vertical
         rotate={180}
-        color="#4b286d"/></div>
+        color="#1c242c"/></div>
                     <div className="billingTable-date"> <span>17</span> <span>sep</span></div>
                 </div>
                 <div className="billingTable-right">
@@ -238,11 +238,11 @@ class BillingTable extends Component {
             <div className="billingTable-row">
                 <div className="billingTable-left">
                     <div className="billingTable-icon"><Icon path={mdiCardAccountDetails}
-        size={1}
+        size={2}
         horizontal
         vertical
         rotate={180}
-        color="#4b286d"/></div>
+        color="#1c242c"/></div>
                     <div className="billingTable-date"> <span>18</span> <span>sep</span></div>
                 </div>
                 <div className="billingTable-right">
@@ -266,11 +266,11 @@ class BillingTable extends Component {
             <div className="billingTable-row">
                 <div className="billingTable-left">
                     <div className="billingTable-icon"><Icon path={mdiCardAccountDetails}
-        size={1}
+        size={2}
         horizontal
         vertical
         rotate={180}
-        color="#4b286d"/></div>
+        color="#1c242c"/></div>
                     <div className="billingTable-date"> <span>19</span> <span>sep</span></div>
                 </div>
                 <div className="billingTable-right">
@@ -294,11 +294,11 @@ class BillingTable extends Component {
             <div className="billingTable-row">
                 <div className="billingTable-left">
                     <div className="billingTable-icon"><Icon path={mdiCardAccountDetails}
-        size={1}
+        size={2}
         horizontal
         vertical
         rotate={180}
-        color="#4b286d"/></div>
+        color="#1c242c"/></div>
                     <div className="billingTable-date"> <span>17</span> <span>sep</span></div>
                 </div>
                 <div className="billingTable-right">
@@ -322,11 +322,11 @@ class BillingTable extends Component {
             <div className="billingTable-row">
                 <div className="billingTable-left">
                     <div className="billingTable-icon"><Icon path={mdiCardAccountDetails}
-        size={1}
+        size={2}
         horizontal
         vertical
         rotate={180}
-        color="#4b286d"/></div>
+        color="#1c242c"/></div>
                     <div className="billingTable-date"> <span>18</span> <span>sep</span></div>
                 </div>
                 <div className="billingTable-right">

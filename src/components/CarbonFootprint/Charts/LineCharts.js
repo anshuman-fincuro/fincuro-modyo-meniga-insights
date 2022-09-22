@@ -67,7 +67,7 @@ class LineCharts extends Component {
           <Line
             type="monotone"
             dataKey="Total"
-            stroke="#4B286D"
+            stroke="#1c242c"
             activeDot={{ r: 8 }}
             />
           </LineChart>   

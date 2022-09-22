@@ -56,7 +56,7 @@ class BarCharts extends Component {
           >
             <XAxis dataKey="Name" style={{ fontColor: '#4B286D', fontSize: '12px' }}/>
             <Tooltip />
-            <Bar dataKey="Actual" fill="#4B286D" />
+            <Bar dataKey="Actual" fill="#1c242c" />
             <Bar dataKey="Planned" fill="#a48eb4" />
           </BarChart>
         </div>

@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
@@ -10,6 +11,7 @@ import BugdetOverview from './components/BugdetOverview';
 import { setAccountsData, setCategoriesData, setMerchantData, setPlanningData, setSpendingData } from "./store/actions/component-action";
 import CarouselNew from './components/CarouselNew';
 import BillingTable from './components/BillingTable';
+// import BillingFilter from './components/BillingFilter';
 import BubbleGraphs from './components/Insights/Charts/BubbleGraphs'
 import ProgressBars from './components/Insights/Charts/ProgressBars';
 import ProgressBarsExpenses from "./components/CarbonFootprint/Charts/ProgressBars";
@@ -44,9 +46,14 @@ class App extends Component {
       <div>
          { (this.props.token !== null && this.props.accountsData && this.props.categoriesData && this.props.spendingData && this.props.merchantData && this.props.planningData) ? 
       <div>
-        
+         <div id="billingDiv" className='toggleBilling'>
         <div className='account-top-bar'>
         <AccountDropdown></AccountDropdown>
+        </div>
+        <div>
+        <BillingTable></BillingTable>
+        {/* <BillingFilter></BillingFilter> */}
+        </div>
         </div>
       {/* account bar end */}
       <CarouselNew></CarouselNew>
@@ -79,7 +86,7 @@ class App extends Component {
       
       </div>
       {/*  */}
-      {/* <BillingTable></BillingTable> */}
+     
       </div>
       
     :

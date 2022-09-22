@@ -554,37 +554,7 @@ progress {
     display: flex;
 }
 
-/* billingTable start */
-.billingTable-wrapper{
-    padding: 12px 12px;
-}
-.billingTable-heading{
- color: #4B286D;
- font-size: 24px;
- font-weight: bold;
-}
-.billingTable-row {
-    display: flex;
-    display: flex;
-    width: 100%;
-    cursor: pointer;
-    background: #ffffff;
-    border: 1px solid #e4e4e4;
-    align-items: center;
-}
-.billingTable-left{
-    display: flex;
-}
-.billingTable-right{
-    display: flex;
-    align-items: center
-}
-.billingTable-right-text{
-    color: #4B286D;
-}
-.billingTable-TransactionAmount{
-    color:#f45516;
-}
+
 .bubblegraph-wrapper {
     width: 70%;
     display: flex;
@@ -598,6 +568,149 @@ progress {
 }
 .bill-content {
 font-size: 14px;
+}
+.account-warapper ul li:hover {
+    background-color: #f4f4f0;
+}
+.account-warapper ul li .arrow-icon svg{
+    fill:#706e6e;
+}
+.toggleBilling .account-warapper ul li.active .arrow-icon svg{
+    fill:#fff;
+    transform: rotate(180deg);
+}
+.toggleBilling .account-warapper ul li.active {
+    background-color: #4b286d;
+}
+.toggleBilling .account-warapper ul li.active .green-color {
+color: #fff;
+}
+.toggleBilling .account-warapper ul li.active .amountWithLabel .amountWithLabel-label {
+color: #fff;
+}
+/* billingTable start */
+.billingTable-wrapper {
+    padding: 12px 12px;
+    display: block;
+}
+.toggleBilling .billingTable-wrapper {
+    display: block;
+}
+.billingTable-heading {
+    color: #4B286D;
+    font-size: 24px;
+    font-weight: bold;
+    border-left: 6px solid;
+    padding-left: 14px;
+    margin-bottom: 12px;
+}
+
+.billingTable-row {
+    display: flex;
+    display: flex;
+    width: 100%;
+    cursor: pointer;
+    background: #ffffff;
+    border-bottom: 1px solid #e4e4e4;
+    align-items: center;
+}
+
+.billingTable-row:hover, .billingTable-row:hover select{
+background-color: #f1f1ff;
+}
+.billingTable-right-dropdown select:focus-visible,
+.billingTable-right-dropdown select:hover {
+    border-radius: 0;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #000;
+}
+
+.billingTable-row:last-child {
+    border-bottom: none;
+}
+
+.billingTable-left {
+    display: flex;
+    color: #566B76;
+}
+
+.billingTable-right {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.billingTable-right-text {
+    color: #4B286D;
+    font-weight: bold;
+    line-height: 18px;
+    padding-left: 4px;
+    font-size: 16px;
+}
+.text-color-red{
+    color: #f45516;
+}
+.text-color-green{
+    color: #2B8000;
+}
+.billingTable-TransactionAmount {
+    padding-right: 12px;
+    font-size: 14px;
+}
+
+.billingTable-right-dropdown select {
+    border: none;
+    border-radius: 0;
+    font-size: 12px;
+    color: #566B76;
+    border: 1px solid transparent;
+}
+
+.billingTable-right-text-wrapper {
+    padding: 12px 14px; 
+}
+
+.billingTable-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #e4e4e4;
+    padding: 12px 18px;
+}
+
+.billingTable-icon i {
+    font-size: 24px;
+    color: #a57fca;
+}
+
+.billingTable-date {
+    padding: 12px 18px;
+    border-right: 1px solid #e4e4e4;
+    font-size: 14px;
+}
+
+.billingTable-container {
+    border: 1px solid #ddd;
+}
+/* bill form */
+.checkboxLabel-wrap {
+    display: flex;
+    align-items: center;
+    margin: 10px 0px;
+}
+.checkboxLabel-wrap > div {
+    margin-right: 10px;
+}
+.checkboxLabel-wrap > div input {
+    width: 20px;
+    height: 20px;
+    margin: 0px;
+}
+.checkboxLabel-wrap .arrow-icon svg {
+    width: 12px;
+    margin-right: 10px;
 }
 /*  media start */
 @media (max-width: 768px) {

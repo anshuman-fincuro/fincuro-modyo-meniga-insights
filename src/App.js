@@ -7,7 +7,7 @@ import { setAuthToken } from './store/actions/auth-action';
 import { SpinningCircles } from "react-loading-icons";
 import AccountDropdown from './components/AccountDropdown';
 import BugdetOverview from './components/BugdetOverview';
-import { setCategoriesData, setMerchantData, setPlanningData, setSpendingData } from "./store/actions/component-action";
+import { setAccountsData, setCategoriesData, setMerchantData, setPlanningData, setSpendingData } from "./store/actions/component-action";
 import CarouselNew from './components/CarouselNew';
 import BillingTable from './components/BillingTable';
 import BubbleGraphs from './components/Insights/Charts/BubbleGraphs'
@@ -18,31 +18,14 @@ import HorizontalBar from './components/CarbonFootprint/Charts/HorizontalBar';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      // progressData: []
-      monthSelected: 'January',
-      yearSelected: '2022'
-    };
-    this.handleMonthDropdownChange = this.handleMonthDropdownChange.bind(this);
-    this.handleYearDropdownChange = this.handleYearDropdownChange.bind(this);
-  }
-
-  async handleMonthDropdownChange(e) {
-    this.setState({
-      monthSelected: e.target.value
-    })
-  }
-
-  async handleYearDropdownChange(e) {
-    this.setState({
-      yearSelected: e.target.value
-    })
+    this.state = {};
   }
 
   async componentDidUpdate(previousProps, previousState) {
     if (previousProps.token !== this.props.token) {
       await Promise.all(
         [ 
+          this.props.setAccounts(this.props.token),
           this.props.setCategories(this.props.token),
           this.props.setSpending(this.props.token),
           this.props.setPlanning(this.props.token),
@@ -54,13 +37,12 @@ class App extends Component {
   }
   async componentDidMount() {
     await this.props.setAuth();
-    
   }
 
   render() {
     return (
       <div>
-         { (this.props.token !== null && this.props.categoriesData.length !== 0 && this.props.spendingData.length !== 0 && this.props.merchantData.length !==0 && this.props.planningData.length !== 0) ? 
+         { (this.props.token !== null && this.props.accountsData && this.props.categoriesData && this.props.spendingData && this.props.merchantData && this.props.planningData) ? 
       <div>
         
         <div className='account-top-bar'>
@@ -109,6 +91,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   token: state.authReducer.token,
+  accountsData: state.componentReducer.accountsData,
   planningData: state.componentReducer.planningData,
   merchantData: state.componentReducer.merchantData,
   categoriesData: state.componentReducer.categoriesData,
@@ -118,6 +101,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => {
   return {
     setAuth: () => dispatch(setAuthToken()),
+    setAccounts: (token) => dispatch(setAccountsData(token)),
     setCategories: (token) => dispatch(setCategoriesData(token)),
     setPlanning: (token) => dispatch(setPlanningData(token)),
     setSpending: (token) => dispatch(setSpendingData(token)),

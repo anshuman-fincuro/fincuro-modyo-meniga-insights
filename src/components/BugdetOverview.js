@@ -66,7 +66,7 @@ class BugdetOverview extends Component {
               <div className="budgetEquationContainer-select">
       
         <select>
-          <option value="fruit">Lasy year</option>
+          <option value="fruit">Last year</option>
           <option value="vegetable">Last year</option>
           <option value="meat">Last 1 year</option>
           <option value="vegetable">Last 3 year</option>

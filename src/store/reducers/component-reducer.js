@@ -2,6 +2,7 @@ import TYPES from '../types';
 
 // Initial State
 const initialState = {
+  accountsData: [],
   categoriesData: [],
   merchantData: [],
   planningData: [],
@@ -10,6 +11,10 @@ const initialState = {
 
 const componentReducer = (state = initialState, action) => {
   switch (action.type) {
+    case TYPES.COMPONENT.ON_ACCOUNTS_SUCCESS:
+      return {
+        accountsData: action.payload.accountsData,
+      };
     case TYPES.COMPONENT.ON_CATEGORIES_SUCCESS:
       return {
         ...state,

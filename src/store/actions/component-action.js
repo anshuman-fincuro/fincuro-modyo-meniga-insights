@@ -3,6 +3,21 @@ import TYPES from '../types';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
+export const setAccountsData = (token) => {
+  return (dispatch) => {
+    axios
+      .get(`${API_URL}/accounts?token=Bearer ${token}`)
+      .then((response) => {
+        if (response.status === 200) {
+          dispatch({
+            type: TYPES.COMPONENT.ON_ACCOUNTS_SUCCESS,
+            payload:  { accountsData: response.data.data },
+          });
+        }
+      });
+  };
+};
+
 export const setCategoriesData = (token) => {
   return (dispatch) => {
     axios

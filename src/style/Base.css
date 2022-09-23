@@ -442,7 +442,10 @@
     display: flex;
     align-items: center;
     flex-direction: row;
-    /* justify-content: center; */
+    width: 50%;
+    margin-top: 52px;
+    justify-content: center;
+    
 }
 
 .expeses-wrapper {
@@ -553,20 +556,18 @@ progress {
 }
 .top-merchents-wrap {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
 .bubblegraph-wrapper {
-    width: 70%;
+    width: 50%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
-.unpayed-bill-wrap {
-    width: 40%;
-}
-.top-merchents-wrap {
-    display: flex;
-}
+
+
 .bill-content {
 font-size: 14px;
 }
@@ -851,7 +852,8 @@ background-color: #f1f1ff;
         flex-direction: column;
     }
     .bubblegraph-wrapper {
-        width: 100%;
+        width: 50%;
+        display: flex;
         justify-content: center;
     }
     .merchents-wrapper {

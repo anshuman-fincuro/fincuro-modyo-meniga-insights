@@ -77,9 +77,9 @@ class App extends Component {
       </div>
       {/* end */}
       <div className='top-merchents-wrap'>
-        <div className='unpayed-bill-wrap '>
+        <div className='unpaid-bill-wrap '>
         <div className='bill-number-text'>5</div>
-        <span className='bold bill-content'>Unpayed bill in next 30 days £ 1,209.50</span>
+        <span className='bold bill-content'>Unpaid bill in next 30 days £ 1,209.50</span>
         </div>
         <div className='bubblegraph-wrapper'>
         <BubbleGraphs merchantData={this.props.merchantData} />

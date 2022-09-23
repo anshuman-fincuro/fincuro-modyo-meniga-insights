@@ -1,4 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
@@ -10,8 +10,6 @@ import AccountDropdown from './components/AccountDropdown';
 import BugdetOverview from './components/BugdetOverview';
 import { setAccountsData, setCategoriesData, setMerchantData, setPlanningData, setSpendingData } from "./store/actions/component-action";
 import CarouselNew from './components/CarouselNew';
-import BillingTable from './components/BillingTable';
-// import BillingFilter from './components/BillingFilter';
 import BubbleGraphs from './components/Insights/Charts/BubbleGraphs'
 import ProgressBars from './components/Insights/Charts/ProgressBars';
 import ProgressBarsExpenses from "./components/CarbonFootprint/Charts/ProgressBars";
@@ -20,7 +18,9 @@ import HorizontalBar from './components/CarbonFootprint/Charts/HorizontalBar';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      activeAccount: 0
+    };
   }
 
   async componentDidUpdate(previousProps, previousState) {
@@ -42,6 +42,8 @@ class App extends Component {
   }
 
   render() {
+    var accountDropdownData = this.props.accountsData ?
+      this.props.accountsData.filter((acc) => acc.accountCategory!=="Wallet") : [];
     return (
       <div>
          { (this.props.token !== null && this.props.accountsData && this.props.categoriesData && this.props.spendingData && this.props.merchantData && this.props.planningData) ? 
@@ -49,7 +51,7 @@ class App extends Component {
          {/* <div id="billingDiv" className='toggleBilling'> */}
          <h2>Account Summary</h2>
         <div className='account-top-bar'>
-        <AccountDropdown></AccountDropdown>
+        <AccountDropdown accountsData={accountDropdownData} activeAccount={this.state.activeAccount}></AccountDropdown>
         </div>
         <div>
         {/* <BillingTable></BillingTable> */}

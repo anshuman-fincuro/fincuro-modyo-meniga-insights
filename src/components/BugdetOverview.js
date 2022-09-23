@@ -5,7 +5,7 @@ import "./../App.css";
 class BugdetOverview extends Component {
   render() {
     return (
-      <div className="bugdet-warapper">
+      <div className="bugdet-wrapper">
         <div className="budgetEquationContainer">
           <div className="budgetEquationContainer-header">
             <span className="budgetEquationContainer-header-icon">

@@ -10,7 +10,7 @@ import AccountDropdown from './components/AccountDropdown';
 import BugdetOverview from './components/BugdetOverview';
 import { setAccountsData, setCategoriesData, setMerchantData, setPlanningData, setSpendingData } from "./store/actions/component-action";
 import CarouselNew from './components/CarouselNew';
-import BillingTable from './components/BillingTable';
+// import BillingTable from './components/BillingTable';
 // import BillingFilter from './components/BillingFilter';
 import BubbleGraphs from './components/Insights/Charts/BubbleGraphs'
 import ProgressBars from './components/Insights/Charts/ProgressBars';
@@ -46,16 +46,16 @@ class App extends Component {
       <div>
          { (this.props.token !== null && this.props.accountsData && this.props.categoriesData && this.props.spendingData && this.props.merchantData && this.props.planningData) ? 
       <div>
-         {/* <div id="billingDiv" className='toggleBilling'> */}
+         <div id="billingDiv" className='toggleBilling'>
          <h2>Account Summary</h2>
         <div className='account-top-bar'>
         <AccountDropdown></AccountDropdown>
         </div>
         <div>
-        {/* <BillingTable></BillingTable> */}
-        {/* <BillingFilter></BillingFilter> */}
+        {/* <BillingTable></BillingTable>
+        <BillingFilter></BillingFilter> */}
         </div>
-        {/* </div> */}
+        </div>
       {/* account bar end */}
       <CarouselNew></CarouselNew>
       <div className='budget-detail-wrap'>

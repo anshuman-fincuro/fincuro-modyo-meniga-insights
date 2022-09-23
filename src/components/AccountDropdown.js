@@ -8,12 +8,11 @@ class AccountDropdown extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: this.props.accountsData,
-      activeAccount: this.props.activeAccount
+      data: this.props.accountsData
     }
   }
-  onTrigger = (index) => {
-    this.setState({activeAccount: index});
+  onTrigger = () => {
+    window.location.href = "https://fincuro.modyo.be/develop-d2/private/account-transactions";
   }
   componentDidUpdate() {}
   render() {
@@ -21,7 +20,7 @@ class AccountDropdown extends Component {
       <div className="account-wrapper">
         <ul>
           {this.props.accountsData.map((x, i) => (
-            <li key={x.id} className={this.state.activeAccount===i ? 'active' : ''} onClick={()=>this.onTrigger(i)}>
+            <li key={x.id} className={this.state.activeAccount===i ? 'active' : ''} onClick={()=>this.onTrigger()}>
               <span className="tab-nav-item-link icon-1">
               <div className="accountMenuItem ">
                 <div className="amountWithLabel">

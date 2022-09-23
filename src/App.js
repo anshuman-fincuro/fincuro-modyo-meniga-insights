@@ -18,9 +18,7 @@ import HorizontalBar from './components/CarbonFootprint/Charts/HorizontalBar';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      activeAccount: 0
-    };
+    this.state = {};
   }
 
   async componentDidUpdate(previousProps, previousState) {
@@ -51,7 +49,7 @@ class App extends Component {
          <div id="billingDiv" className='toggleBilling'>
          <h2 className="mb-4">Account Summary</h2>
         <div className='account-top-bar'>
-        <AccountDropdown accountsData={accountDropdownData} activeAccount={this.state.activeAccount}></AccountDropdown>
+        <AccountDropdown accountsData={accountDropdownData}></AccountDropdown>
         </div>
         <div>
         {/* <BillingTable></BillingTable>

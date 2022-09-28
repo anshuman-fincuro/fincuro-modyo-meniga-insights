@@ -17,11 +17,6 @@
     flex-wrap: nowrap;
 }
 
-.insights-right {
-    width: 400px;
-    padding-top: 30px;
-}
-
 /* .wrapper {
     display: flex;
     flex-direction: column;
@@ -169,24 +164,12 @@
 }
 
 .progressBar-item-wrap {
-    display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    margin-left: 0px;
-    margin-right: 0px;
-    padding: 0px;
-    width: 1100px
 }
 
 .lineChart-container {
     margin-top: 50px;
-}
-
-.HSBar-container {
-    width: 100%;
-    padding: 0px;
-    text-align: center;
-    margin-left: 0px;
 }
 
 /* end  */
@@ -442,7 +425,6 @@
     display: flex;
     align-items: center;
     flex-direction: row;
-    width: 50%;
     margin-top: 52px;
     justify-content: center;
     
@@ -453,14 +435,14 @@
     padding: 0 18px;
 }
 
-.merchents-wrap {
+.merchants-wrap {
     display: flex;
     justify-content: space-between;
     margin: 40px 0px;
 }
 
 
-.merchents-left {
+.merchants-left {
     width: 50%;
 }
 
@@ -505,7 +487,7 @@ progress {
 .expeses-wrapper .progress-items {
     font-size: 10px;
 }
-.merchents-wrapper .progress-items {
+.merchants-wrapper .progress-items {
     font-size: 10px;
 }
 
@@ -517,47 +499,56 @@ progress {
     padding-top: 4px;
 }
 
-.merchents-wrapper .progressBar-item-wrap {
+/* .merchants-wrapper .progressBar-item-wrap {
     width: auto;
-}
+} */
 
-.top-merchents-wrap .barcharts-content {
+.top-merchants-wrap .barcharts-content {
     padding: 0;
     padding-left: 0;
     margin: 0 auto;
     text-align: center;
 }
 
-.merchents-wrapper .progressBar-item {
+.merchants-wrapper .progressBar-item {
     font-size: 10px;
 }
 
-.merchents-left .progress {
+.merchants-left .progress {
     width: 100%;
 }
 
-.merchents-wrapper hr {
+.merchants-wrapper hr {
     margin: 4px 0px;
     margin-left: 0px;
 }
 
 /* hsbar */
-.HSbar-headig {
+.HSBar-container {
+    font-size: 12px;
+}
+
+.HSbar-heading {
     text-align: left;
     padding: 0px 0px 12px;
+    font-size: 16px;
 }
 
 .expeses-wrapper progress {
     margin-top: 10px;
 }
 
-.merchents-wrapper progress {
+.merchants-wrapper {
+    width: 100%;
+}
+
+.merchants-wrapper progress {
     margin-top: 4px;
 }
-.top-merchents-wrap {
+.top-merchants-wrap {
     display: flex;
-    justify-content: center;
     align-items: center;
+    margin: 14px 0;
 }
 
 
@@ -840,23 +831,20 @@ background-color: #f1f1ff;
         width: 100%;
     }
 
-    .top-merchents-wrap .merchents-right {
+    .top-merchants-wrap .merchants-right {
         width: 100%;
         padding-left: 0;
     }
 
-    .top-merchents-wrap .merchents-right .wrapper {
+    .top-merchants-wrap .merchants-right .wrapper {
         width: 320px;
     }
-    .top-merchents-wrap {
+    .top-merchants-wrap {
         flex-direction: column;
     }
     .bubblegraph-wrapper {
         width: 50%;
         display: flex;
         justify-content: center;
-    }
-    .merchents-wrapper {
-        padding: 0 10px;
     }
 }

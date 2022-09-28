@@ -10,7 +10,7 @@ import AccountDropdown from './components/AccountDropdown';
 import BugdetOverview from './components/BugdetOverview';
 import { setAccountsData, setCategoriesData, setMerchantData, setPlanningData, setSpendingData } from "./store/actions/component-action";
 import CarouselNew from './components/CarouselNew';
-import BubbleGraphs from './components/Insights/Charts/BubbleGraphs'
+// import BubbleGraphs from './components/Insights/Charts/BubbleGraphs'
 import ProgressBars from './components/Insights/Charts/ProgressBars';
 import ProgressBarsExpenses from "./components/CarbonFootprint/Charts/ProgressBars";
 import HorizontalBar from './components/CarbonFootprint/Charts/HorizontalBar';
@@ -45,7 +45,7 @@ class App extends Component {
     return (
       <div>
          { (this.props.token !== null && this.props.accountsData && this.props.categoriesData && this.props.spendingData && this.props.merchantData && this.props.planningData) ? 
-      <div>
+      <div className="col-12">
          <div id="billingDiv" className='toggleBilling'>
          <h2 className="mb-4">Summary</h2>
         <div className='account-top-bar'>
@@ -57,18 +57,17 @@ class App extends Component {
         </div>
         </div>
       {/* account bar end */}
-      <CarouselNew></CarouselNew>
+      {/* <CarouselNew></CarouselNew> */}
       <div className='budget-detail-wrap'>
       <div className='budget-container budget-flex'>
       <BugdetOverview></BugdetOverview>
         </div>
         {/*  */}
         <div className='budget-detail-wrap budget-flex'>
-        <div className='merchents-wrapper'>
-        <HorizontalBar spendingData={this.props.spendingData} categoriesData={this.props.categoriesData}  />
-        <hr/>
-       <ProgressBarsExpenses spendingData={this.props.spendingData} categoriesData={this.props.categoriesData} />
-        </div>
+          <div className='unpaid-bill-wrap '>
+            <div className='bill-number-text'>5</div>
+            <span className='bold bill-content'>Unpaid bill in next 30 days £ 1,209.50</span>
+          </div>
         </div>
         {/*  */}
          <div className='budget-container budget-flex expeses-container'>
@@ -76,15 +75,12 @@ class App extends Component {
         </div>
       </div>
       {/* end */}
-      <div className='top-merchents-wrap'>
-        <div className='unpaid-bill-wrap '>
-        <div className='bill-number-text'>5</div>
-        <span className='bold bill-content'>Unpaid bill in next 30 days £ 1,209.50</span>
-        </div>
-        <div className='bubblegraph-wrapper'>
-        <BubbleGraphs merchantData={this.props.merchantData} />
-        </div>
-      
+      <div className='top-merchants-wrap p-3 col-12 col-lg-7'>
+        <div className='merchants-wrapper'>
+          <HorizontalBar spendingData={this.props.spendingData} categoriesData={this.props.categoriesData}  />
+            <hr/>
+          <ProgressBarsExpenses spendingData={this.props.spendingData} categoriesData={this.props.categoriesData} />
+        </div>    
       </div>
       {/*  */}
      

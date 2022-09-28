@@ -151,7 +151,7 @@ class ProgressBars extends Component {
               </div>
             </div>
           </div>
-        <div className="insights-right">
+        <div className="insights-right col-12 pt-5">
           { progressItems }
         </div>
       </div>

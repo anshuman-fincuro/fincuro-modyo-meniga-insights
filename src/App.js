@@ -57,7 +57,7 @@ class App extends Component {
         </div>
         </div>
       {/* account bar end */}
-      {/* <CarouselNew></CarouselNew> */}
+      <CarouselNew></CarouselNew>
       <div className='budget-detail-wrap'>
       <div className='budget-container budget-flex'>
       <BugdetOverview></BugdetOverview>

@@ -37,7 +37,7 @@ class BubbleGraphs extends Component {
             <p className='barcharts-left-content'> Your top merchants for the past 30 days</p>   
         </div>
        
-        <div className="chart-wrapper" style={{ width: "320px", height: "320px" }}>
+        <div className="chart-wrapper" style={{ width: "350px", height: "350px" }}>
           <ReactBubbleChart
             {...this.props}
             className="chart__bubble"

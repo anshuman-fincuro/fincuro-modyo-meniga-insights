@@ -749,6 +749,9 @@ background-color: #f1f1ff;
 .bill-tableFrom-right .billing-form-wrap .form-group input[type=checkbox]:hover {
     border: 2px solid #4d4d4d;
  }
+ .bubble-chart-center {
+    justify-content: center;
+ }
 /*  media start */
 @media (max-width: 768px) {
     .bill-table-form-wrap {

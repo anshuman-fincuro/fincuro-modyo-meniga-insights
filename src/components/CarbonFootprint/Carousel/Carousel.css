@@ -5,6 +5,7 @@
 .inner {
   white-space: nowrap;
   transition: transform 0.5s;
+  color: #1c242c;
 }
 
 .carousel-item {
@@ -13,7 +14,7 @@
   justify-content: center;
   height: 75px;
   font-size: 16px;
-  color: #4B286D;
+  color: #1c242c;
 }
 
 .indicators {
@@ -30,8 +31,10 @@
   border-radius: 50%;
   display: inline-block;
   cursor: pointer;
+  color: #1c242c;
 }
 
 .indicators > div.active {
-  background-color: #4B286D;
+  background-color: #1c242c;
+  color: #1c242c;
 }

@@ -53,7 +53,7 @@ class CarbonFootprint extends Component {
   render() {
     return (
       <div>
-        <h2>CarbonFootprint</h2>
+        <h2>Carbon Footprint</h2>
       { (this.props.token !== null && this.props.categoriesData.length !== 0 && this.props.spendingData.length !== 0) ? 
         <div className="carbonFootprint-wrapper" >
           <div className="carbonFootprint-inner">

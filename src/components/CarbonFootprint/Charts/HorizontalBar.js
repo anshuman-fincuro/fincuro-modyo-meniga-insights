@@ -66,7 +66,7 @@ class HorizontalBar extends Component {
   render() {
     const { progressData, percentageData } = this.state;
 
-    const colours = [ '#1c242c', '#1c242cc4', '#555b61c9', '#555b61a6', '#555b6161' ];
+    const colours = [ '#2c888c', '#2c888cc2', '#2c888c78', '#2c888c52', '#32878b36' ];
     let count = 0;
     for (const every of progressData.slice(0, 5)) {
       percentageData.push({

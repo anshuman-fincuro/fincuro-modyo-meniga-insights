@@ -11,10 +11,11 @@
 .carousel-item {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 75px;
   font-size: 16px;
   color: #1c242c;
+  padding-left: 20px;
 }
 
 .indicators {
@@ -35,6 +36,6 @@
 }
 
 .indicators > div.active {
-  background-color: #1c242c;
+  background-color: #2c888c;
   color: #1c242c;
 }

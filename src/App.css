@@ -10,7 +10,7 @@ progress {
 }
 
 progress::-webkit-progress-value {
-  background: #1c242c;
+  background: #2c888c;
 }
 
 progress::-webkit-progress-bar {

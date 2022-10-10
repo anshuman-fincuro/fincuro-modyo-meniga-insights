@@ -60,14 +60,14 @@ class LineCharts extends Component {
   render() {
     return (
       <div className="lineChart-container">
-        <LineChart layout="horizontal" width={1200} height={300} data={this.state.data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+        <LineChart layout="horizontal" width={1000} height={300} data={this.state.data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
           <XAxis dataKey="name" padding={{ left: 50, right: 50 }} />
           <YAxis />
           <Tooltip />
           <Line
             type="monotone"
             dataKey="Total"
-            stroke="#1c242c"
+            stroke="#2c888c"
             activeDot={{ r: 8 }}
             />
           </LineChart>   

@@ -539,7 +539,7 @@ progress {
 }
 
 .merchants-wrapper {
-    width: 100%;
+    width: 70%;
 }
 
 .merchants-wrapper progress {
@@ -751,6 +751,9 @@ background-color: #f1f1ff;
  }
  .bubble-chart-center {
     justify-content: center;
+ }
+ .bar-chart-center{
+    padding: 30px 0px;
  }
 /*  media start */
 @media (max-width: 768px) {

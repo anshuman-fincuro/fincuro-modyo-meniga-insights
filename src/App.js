@@ -10,10 +10,10 @@ import AccountDropdown from './components/AccountDropdown';
 import BugdetOverview from './components/BugdetOverview';
 import { setAccountsData, setCategoriesData, setMerchantData, setPlanningData, setSpendingData } from "./store/actions/component-action";
 import CarouselNew from './components/CarouselNew';
-import BubbleGraphs from './components/Insights/Charts/BubbleGraphs'
+// import BubbleGraphs from './components/Insights/Charts/BubbleGraphs'
 import ProgressBars from './components/Insights/Charts/ProgressBars';
-// import ProgressBarsExpenses from "./components/CarbonFootprint/Charts/ProgressBars";
-// import HorizontalBar from './components/CarbonFootprint/Charts/HorizontalBar';
+import ProgressBarsExpenses from "./components/CarbonFootprint/Charts/ProgressBars";
+import HorizontalBar from './components/CarbonFootprint/Charts/HorizontalBar';
 
 class App extends Component {
   constructor(props) {
@@ -75,13 +75,13 @@ class App extends Component {
         </div>
       </div>
       {/* end */}
-      <div className='top-merchants-wrap bubble-chart-center p-3 col-12 col-lg-12'>
-        {/* <div className='merchants-wrapper'>
+      <div className='top-merchants-wrap bubble-chart-center bar-chart-center p-3 col-12 col-lg-12'>
+         <div className='merchants-wrapper'>
           <HorizontalBar spendingData={this.props.spendingData} categoriesData={this.props.categoriesData}  />
             <hr/>
           <ProgressBarsExpenses spendingData={this.props.spendingData} categoriesData={this.props.categoriesData} />
-        </div>     */}
-         <BubbleGraphs merchantData={this.props.merchantData} />
+        </div>     
+         {/* <BubbleGraphs merchantData={this.props.merchantData} /> */}
       </div>
       {/*  */}
      

@@ -415,7 +415,7 @@
 }
 
 .budget-detail-wrap .budget-flex {
-    flex: 0 0 28%;
+    flex: 0 0 29%;
 }
 
 .unpaid-bill-wrap {
@@ -468,10 +468,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 46px;
+    font-size: 40px;
     color: #2c888c;
-    ;
-    margin-right: 24px;
+    margin-right: 10px;
     font-weight: bold;
 }
 

@@ -308,7 +308,7 @@
 
 .budgetEquation-data-item:hover,
 .budgetEquation-data-item.active {
-    background-color: #eaf2fb;
+    background-color: #b1d3d5b3;
 }
 
 .budgetEquation-data-item:hover .content,
@@ -356,7 +356,7 @@
 }
 
 .carousel-wrapper .carousel .control-dots .dot {
-    background: #1c242c;
+    background: #2c888c;
 }
 
 .carousel-status {
@@ -421,13 +421,13 @@
 .unpaid-bill-wrap {
     font-size: 18px;
     text-align: center;
-    padding: 20px 20px;
+    padding: 20px 10px;
     display: flex;
     align-items: center;
     flex-direction: row;
-    margin-top: 52px;
+    /* margin-top: 52px; */
     justify-content: center;
-    
+    border: 10px solid #F4F4F0;
 }
 
 .expeses-wrapper {
@@ -461,7 +461,7 @@
 
 /* bills number  */
 .bill-number-text {
-    border: 2px solid #1c242c;
+    border: 2px solid #2c888c;
     border-radius: 50%;
     height: 70px;
     width: 70px;
@@ -469,7 +469,7 @@
     justify-content: center;
     align-items: center;
     font-size: 46px;
-    color: #1c242c;
+    color: #2c888c;
     ;
     margin-right: 24px;
     font-weight: bold;

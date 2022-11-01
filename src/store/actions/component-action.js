@@ -68,7 +68,7 @@ export const setPlanningData = (token) => {
 export const setSpendingData = (token) => {
   return (dispatch) => {
     axios
-      .get(`${API_URL}/transactions?token=Bearer${token}&periodFrom=${getFromDate()}&periodTo=${getToDate()}`)
+      .get(`${API_URL}/transactions?token=Bearer ${token}&periodFrom=${getFromDate()}&periodTo=${getToDate()}`)
       .then((response) => {
         if (response.status === 200) {
           dispatch({

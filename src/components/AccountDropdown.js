@@ -12,7 +12,7 @@ class AccountDropdown extends Component {
     }
   }
   onTrigger = () => {
-    window.location.href = "https://fincuro.modyo.be/develop-d2/private/account-transactions";
+    window.location.href = "https://fincuro.modyo.be/d4-ust/private/account-transactions";
   }
   componentDidUpdate() {}
   render() {

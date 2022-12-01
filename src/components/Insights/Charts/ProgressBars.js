@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { ProgressBar } from '@meniga/ui';
-
+import DateFilter from "../DateFilter/DateFilter";
 import './../../../App.css';
 import './../../../style/Base.css';
 
@@ -14,6 +14,19 @@ class ProgressBars extends Component {
       categoriesData: [],
       spendingData: []
     };
+  }
+  dateOnChange(e) {
+    let dateFilter = {};
+    if (e) {
+      dateFilter = { dateFilter: e };
+      this.setState({ ...e }, () => {
+        this.props.setSpendingData(this.props.token, this.state);
+      });
+    } else {
+      this.setState({ period: null, periodFrom: null, amountTo: null }, () => {
+        this.props.setSpendingData(this.props.token, this.state);
+      });
+    }
   }
 
   async componentDidMount() {
@@ -139,14 +152,14 @@ class ProgressBars extends Component {
                 Expenses by categories
               </h3>
               <div className="budgetEquationContainer-select">
-      
-        <select>
+              <DateFilter onChange={(date) => this.dateOnChange(date)}></DateFilter>
+        {/* <select>
           <option value="fruit">Lasy year</option>
           <option value="vegetable">Last year</option>
           <option value="meat">Last 1 year</option>
           <option value="vegetable">Last 3 year</option>
           <option value="meat">Last 6 year</option>
-        </select>
+        </select> */}
       
               </div>
             </div>

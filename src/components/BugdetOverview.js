@@ -1,8 +1,22 @@
 import React, { Component } from "react";
+import DateFilter from "./Insights/DateFilter/DateFilter";
 import "./../style/Base.css";
 import "./../App.css";
 
 class BugdetOverview extends Component {
+  dateOnChange(e) {
+    let dateFilter = {};
+    if (e) {
+      dateFilter = { dateFilter: e };
+      this.setState({ ...e }, () => {
+        this.props.setSpendingData(this.props.token, this.state);
+      });
+    } else {
+      this.setState({ period: null, periodFrom: null, amountTo: null }, () => {
+        this.props.setSpendingData(this.props.token, this.state);
+      });
+    }
+  }
   render() {
     return (
       <div className="bugdet-wrapper">
@@ -63,16 +77,18 @@ class BugdetOverview extends Component {
               <h3 className="bold">
                 Budget overview
               </h3>
-              <div className="budgetEquationContainer-select">
+     <div className="budgetEquationContainer-select">
       
-        <select>
+        {/* <select>
           <option value="fruit">Last year</option>
           <option value="vegetable">Last year</option>
           <option value="meat">Last 1 year</option>
           <option value="vegetable">Last 3 year</option>
           <option value="meat">Last 6 year</option>
-        </select>
-      
+        </select> */}
+        
+            <DateFilter onChange={(date) => this.dateOnChange(date)}></DateFilter>
+           
               </div>
             </div>
           </div>

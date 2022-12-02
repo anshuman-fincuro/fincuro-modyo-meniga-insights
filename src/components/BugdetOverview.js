@@ -2,20 +2,26 @@ import React, { Component } from "react";
 import DateFilter from "./Insights/DateFilter/DateFilter";
 import "./../style/Base.css";
 import "./../App.css";
+import { connect } from "react-redux";
+import { setBudgetData } from "../store/actions/component-action";
 
 class BugdetOverview extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      periodFrom: null,
+      periodTo: null,
+    };
+  }
+
   dateOnChange(e) {
     let dateFilter = {};
     if (e) {
       dateFilter = { dateFilter: e };
-      this.setState({ ...e }, () => {
-        this.props.setSpendingData(this.props.token, this.state);
+    this.setState({ ...e }, () => {
+       this.props.setBudgetData(this.props.token,this.state);     
       });
-    } else {
-      this.setState({ period: null, periodFrom: null, amountTo: null }, () => {
-        this.props.setSpendingData(this.props.token, this.state);
-      });
-    }
+    }  
   }
   render() {
     return (
@@ -77,22 +83,13 @@ class BugdetOverview extends Component {
               <h3 className="bold">
                 Budget overview
               </h3>
-     <div className="budgetEquationContainer-select">
-      
-        {/* <select>
-          <option value="fruit">Last year</option>
-          <option value="vegetable">Last year</option>
-          <option value="meat">Last 1 year</option>
-          <option value="vegetable">Last 3 year</option>
-          <option value="meat">Last 6 year</option>
-        </select> */}
-        
-            <DateFilter onChange={(date) => this.dateOnChange(date)}></DateFilter>
-           
+     <div className="budgetEquationContainer-select">     
+            <DateFilter onChange={(date) => this.dateOnChange(date)}></DateFilter>        
               </div>
             </div>
           </div>
-          <div className="budgetEquationContainer-data">
+          {(this.props.budgetData !== undefined) ? (this.props.budgetData.length !== 0 )?
+          (<div className="budgetEquationContainer-data">
             <div className="budgetEquation-data-item">
                     <div className="budgetEquation-item-left">
                       <div className="content text">
@@ -106,7 +103,7 @@ class BugdetOverview extends Component {
                             // style="white-space: nowrap;"
                           >
                             <span className="FormatCurrency-symbol">£ </span>
-                            <span className="FormatCurrency-value">33,600.00</span>
+                            <span className="FormatCurrency-value">{this.props.budgetData[1].statistics.total}</span>
                           </span>
                         </span>
                     </div>
@@ -125,7 +122,7 @@ class BugdetOverview extends Component {
                             // style="white-space: nowrap;"
                           >
                             <span className="FormatCurrency-symbol">£ </span>
-                            <span className="FormatCurrency-value">-29,973.52</span>
+                            <span className="FormatCurrency-value">{this.props.budgetData[0].statistics.total}</span>
                           </span>
                         </span>
                     </div>
@@ -144,16 +141,26 @@ class BugdetOverview extends Component {
                             // style="white-space: nowrap;"
                           >
                             <span className="FormatCurrency-symbol">£ </span>
-                            <span className="FormatCurrency-value">3,626.48</span>
+                            <span className="FormatCurrency-value">{this.props.budgetData[1].statistics.total+this.props.budgetData[0].statistics.total}</span>
                           </span>
                         </span>
                     </div>
             </div>
-          </div>
+            
+          </div>)
+          :(console.log("nolength")): console.log("nodata")}
         </div>
       </div>
     );
   }
 }
-
-export default BugdetOverview;
+const mapStateToProps = (state) => ({
+  token: state.authReducer.token,
+  budgetData: state.componentReducer.budgetData,
+});
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setBudgetData: (token, value) => dispatch(setBudgetData(token, value)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(BugdetOverview);

@@ -3,13 +3,15 @@ import { ProgressBar } from '@meniga/ui';
 import DateFilter from "../DateFilter/DateFilter";
 import './../../../App.css';
 import './../../../style/Base.css';
-
+import {setExpenseData} from "./../../../store/actions/component-action"
+import {connect} from "react-redux";
 class ProgressBars extends Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
+ this.state = {
+      periodFrom: null,
+      periodTo: null,
       data: [],
       categoriesData: [],
       spendingData: []
@@ -20,15 +22,10 @@ class ProgressBars extends Component {
     if (e) {
       dateFilter = { dateFilter: e };
       this.setState({ ...e }, () => {
-        this.props.setSpendingData(this.props.token, this.state);
+        this.props.setExpenseData(this.props.token, this.state);
       });
-    } else {
-      this.setState({ period: null, periodFrom: null, amountTo: null }, () => {
-        this.props.setSpendingData(this.props.token, this.state);
-      });
-    }
+    } 
   }
-
   async componentDidMount() {
     const filteredData = [];
 
@@ -75,26 +72,25 @@ class ProgressBars extends Component {
       }
     }
   }
-
   render() {
     const progressItems = [];
-    const shuffledData = this.state.data.sort(() => 0.5 - Math.random());
-  
-    for (const every of shuffledData.slice(0, 4)) {
-      progressItems.push(
-        <div className='progress-wrapper'> 
-            <ProgressBar key={every.category} value={every.percentage} total={100} animate={true} showValue={true} />
-            <div className='progress-items-wrap'>
-              <div className='progress-items'>{ String(every.category).toUpperCase() }</div>
-              <div className='progress-items'>$ { every.amount }</div>
-            </div>
-        </div>
-      );
-    }
-
+      // eslint-disable-next-line no-lone-blocks
+      {(this.props.expenseData !== undefined) ? (this.props.expenseData.length !== 0 )? ((this.props.expenseData.map((value,i)=>{
+        progressItems.push(
+              <div className='progress-wrapper'> 
+                 <ProgressBar key={this.state.data[i].category} value={this.state.data[i].percentage} total={100} animate={true} showValue={true} />
+              <div className='progress-items-wrap'>
+                <div className='progress-items'>{ String(this.state.data[i].category).toUpperCase() }</div>
+                    <div className='progress-items'>$ {value.values[0].nettoAmount }</div>
+                  </div>
+              </div>
+           );
+      })))
+      :(console.log("nolength")): console.log("nodata")}
     return (
       <>
       <div className='expeses-wrapper'>
+    
       <div className="budgetEquationContainer-header">
             <span className="budgetEquationContainer-header-icon">
               <svg
@@ -152,20 +148,14 @@ class ProgressBars extends Component {
                 Expenses by categories
               </h3>
               <div className="budgetEquationContainer-select">
-              <DateFilter onChange={(date) => this.dateOnChange(date)}></DateFilter>
-        {/* <select>
-          <option value="fruit">Lasy year</option>
-          <option value="vegetable">Last year</option>
-          <option value="meat">Last 1 year</option>
-          <option value="vegetable">Last 3 year</option>
-          <option value="meat">Last 6 year</option>
-        </select> */}
+           
+                 <DateFilter onChange={(date) => this.dateOnChange(date)}></DateFilter>     
       
               </div>
             </div>
           </div>
         <div className="insights-right col-12">
-          { progressItems }
+         {progressItems}
         </div>
       </div>
       </>
@@ -173,4 +163,13 @@ class ProgressBars extends Component {
   }
 }
 
-export default ProgressBars;
+const mapStateToProps = (state) => ({
+  token: state.authReducer.token,
+  expenseData: state.componentReducer.expenseData,
+});
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setExpenseData: (token, value) => dispatch(setExpenseData(token, value)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(ProgressBars);

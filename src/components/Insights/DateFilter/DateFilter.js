@@ -5,22 +5,16 @@ import { getFromToDate } from "../../../utils";
  
 
 function DateFilter({ onChange }) {
-  const [showDateRange, setShowDateRange] = React.useState(false);
-  const [fromDate, setFromDate] = React.useState(null);
-  const [toDate, setTodate] = React.useState(null);
+  const [fromDate] = React.useState(null);
+  const [toDate] = React.useState(null);
 
   const periodChange = (value) => {
-    if (value !== "custom") {
-      setShowDateRange(false);
       if(value == null){
         onChange({ periodFrom: null, periodTo: null });
       }else{
         const { startDate, endDate } = getFromToDate(value);
         onChange({ periodFrom: startDate, periodTo: endDate });
       }
-    } else {
-      setShowDateRange(true);
-    }
   };
 
   React.useEffect(()=>{
@@ -37,7 +31,6 @@ function DateFilter({ onChange }) {
           aria-label="Default select example"
           onChange={(event) => periodChange(event.target.value)}
         >
-          <option value="">Select period</option>
           <option value="0">This month</option>
           <option value="1">Last month</option>
           <option value="3">Last 3 months</option>

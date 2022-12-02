@@ -21,7 +21,6 @@ class ProgressBarsExpenses extends Component {
     if(this.props.categoriesData.length !== 0) {
       for(const every of this.props.spendingData) {
         const { categoryId, carbonFootprint } = every;
-
         const innerObj = {};
         for(const category of this.props.categoriesData) {
           const categoryFound = category.children.filter(x => x.id === categoryId);
@@ -64,7 +63,7 @@ class ProgressBarsExpenses extends Component {
 
   render() {
     const { progressData } = this.state;
-
+    {console.log(progressData)}
     const progressItems = [];
     for (const every of progressData.slice(0, 5)) {
       progressItems.push(

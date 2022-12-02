@@ -7,6 +7,8 @@ const initialState = {
   merchantData: [],
   planningData: [],
   spendingData: [],
+  budgetData: [],
+  expenseData: [],
 };
 
 const componentReducer = (state = initialState, action) => {
@@ -34,6 +36,16 @@ const componentReducer = (state = initialState, action) => {
       return {
         ...state,
         spendingData: action.payload.spendingData,
+      };
+      case TYPES.COMPONENT.ON_BUDGET_SUCCESS:
+      return {
+        ...state,
+        budgetData: action.payload.budgetData,
+      };
+      case TYPES.COMPONENT.ON_EXPENSE_SUCCESS:
+      return {
+        ...state,
+        expenseData: action.payload.expenseData,
       };
     default:
       return {

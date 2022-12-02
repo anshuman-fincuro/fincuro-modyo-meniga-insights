@@ -14,7 +14,7 @@ progress::-webkit-progress-value {
 }
 
 progress::-webkit-progress-bar {
-  background: gainsboro;
+  background: rgba(44, 136, 140, 0.37);
 }
 
 .first-column {

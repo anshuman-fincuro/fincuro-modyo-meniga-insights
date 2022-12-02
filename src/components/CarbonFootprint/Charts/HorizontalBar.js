@@ -3,6 +3,7 @@ import HSBar from "react-horizontal-stacked-bar-chart";
 
 import './../../../App.css';
 import './../../../style/Base.css';
+import DateFilter from "./../../Insights/DateFilter/DateFilter";
 
 class HorizontalBar extends Component {
 
@@ -13,6 +14,19 @@ class HorizontalBar extends Component {
       percentageData: [],
       progressData: []
     };
+  }
+  dateOnChange(e) {
+    let dateFilter = {};
+    if (e) {
+      dateFilter = { dateFilter: e };
+      this.setState({ ...e }, () => {
+        this.props.setSpendingData(this.props.token, this.state);
+      });
+    } else {
+      this.setState({ period: null, periodFrom: null, amountTo: null }, () => {
+        this.props.setSpendingData(this.props.token, this.state);
+      });
+    }
   }
 
   async componentDidMount() {
@@ -80,7 +94,12 @@ class HorizontalBar extends Component {
 
     return (
       <div className="HSBar-container">
+        <div>
         <div className="HSbar-heading">Carbon Footprint by category</div>
+        <div className="budgetEquationContainer-select align-right">
+           <DateFilter onChange={(date) => this.dateOnChange(date)}></DateFilter> 
+        </div>
+        </div>
         <HSBar
           showTextDown
           id="hsbar_text"

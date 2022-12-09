@@ -4,6 +4,7 @@ import "./../style/Base.css";
 import "./../App.css";
 import { connect } from "react-redux";
 import { setBudgetData } from "../store/actions/component-action";
+import { getFromToDate } from "../utils";
 
 class BugdetOverview extends Component {
   constructor(props) {
@@ -14,14 +15,19 @@ class BugdetOverview extends Component {
     };
   }
 
-  dateOnChange(e) {
-    let dateFilter = {};
+  componentDidMount(){
+    const { startDate, endDate } = getFromToDate("0");    
+    this.props.setBudgetData(this.props.token, {periodFrom:startDate , periodTo:endDate});    
+  }
+ 
+  dateOnChange(e) { 
+       let dateFilter = {}; 
     if (e) {
       dateFilter = { dateFilter: e };
-    this.setState({ ...e }, () => {
+        this.setState({ ...e }, () => {
        this.props.setBudgetData(this.props.token,this.state);     
-      });
-    }  
+      });  
+  } 
   }
   render() {
     return (

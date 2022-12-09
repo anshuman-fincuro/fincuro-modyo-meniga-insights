@@ -5,6 +5,7 @@ import './../../../App.css';
 import './../../../style/Base.css';
 import {setExpenseData} from "./../../../store/actions/component-action"
 import {connect} from "react-redux";
+import { getFromToDate } from "../../../utils";
 class ProgressBars extends Component {
 
   constructor(props) {
@@ -17,6 +18,7 @@ class ProgressBars extends Component {
       spendingData: []
     };
   }
+  
   dateOnChange(e) {
     let dateFilter = {};
     if (e) {
@@ -28,7 +30,6 @@ class ProgressBars extends Component {
   }
   async componentDidMount() {
     const filteredData = [];
-
     let count = 0;
     if(this.props.categoriesData.length !== 0) {
       for(const every of this.props.spendingData) {
@@ -47,6 +48,9 @@ class ProgressBars extends Component {
 
         count = count + 1;
       }
+      const { startDate, endDate } = getFromToDate("0");    
+      this.props.setExpenseData(this.props.token, {periodFrom:startDate , periodTo:endDate, data: [], categoriesData: [], spendingData:[]});
+      
 
       const resultantData = Array.from(filteredData.reduce((m, {category, amount}) => 
         m.set(category, [...(m.get(category) || []), amount]), new Map
@@ -148,9 +152,7 @@ class ProgressBars extends Component {
                 Expenses by categories
               </h3>
               <div className="budgetEquationContainer-select">
-           
-                 <DateFilter onChange={(date) => this.dateOnChange(date)}></DateFilter>     
-      
+                 <DateFilter onChange={(date) => this.dateOnChange(date)}></DateFilter>  
               </div>
             </div>
           </div>

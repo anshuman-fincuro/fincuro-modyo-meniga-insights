@@ -344,7 +344,7 @@
 }
 .align-right{
     align-items: flex-end;
-    margin-left: 620px;
+    
 }
 
 /* CarouselNew start */
@@ -432,6 +432,7 @@
     /* margin-top: 52px; */
     justify-content: center;
     border: 10px solid #F4F4F0;
+    
 }
 
 .expeses-wrapper {

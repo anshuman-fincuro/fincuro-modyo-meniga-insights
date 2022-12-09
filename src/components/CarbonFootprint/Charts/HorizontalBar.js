@@ -96,7 +96,7 @@ class HorizontalBar extends Component {
       <div className="HSBar-container">
         <div>
         <div className="HSbar-heading">Carbon Footprint by category</div>
-        <div className="budgetEquationContainer-select align-right">
+        <div className="budgetEquationContainer-select col-md-12 align-right">
            <DateFilter onChange={(date) => this.dateOnChange(date)}></DateFilter> 
         </div>
         </div>

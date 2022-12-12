@@ -17,6 +17,7 @@ class ProgressBars extends Component {
       categoriesData: [],
       spendingData: []
     };
+    this.calcPercentage = this.calcPercentage.bind(this);
   }
   
   dateOnChange(e) {
@@ -68,7 +69,7 @@ class ProgressBars extends Component {
         totalAmount += Number(innerObj.amount);
         finalData.push(innerObj);
       }
-
+      console.log('finalData', finalData)
       if(this.state.data.length === 0) {
         this.setState({ data: 
           finalData.map(x => { return { category: x.category, amount: x.amount, percentage: (x.amount/totalAmount * 100) } })
@@ -76,13 +77,22 @@ class ProgressBars extends Component {
       }
     }
   }
+  calcPercentage(expensesList, expenseAmout){
+    const finalData = [];
+    expensesList.map((value,i)=>{
+      finalData.push(Math.abs(value.values[0].nettoAmount));
+    })
+    const totalAmount = Number(Number(finalData.reduce((partialSum, a) => partialSum + a, 0)).toFixed(2))
+    console.log('expensesList, expenseAmout', expensesList, expenseAmout,finalData, totalAmount)
+    return (Math.abs(expenseAmout/totalAmount * 100));
+  }
   render() {
     const progressItems = [];
       // eslint-disable-next-line no-lone-blocks
       {(this.props.expenseData !== undefined) ? (this.props.expenseData.length !== 0 )? ((this.props.expenseData.map((value,i)=>{
         progressItems.push(
               <div className='progress-wrapper'> 
-                 <ProgressBar key={this.state.data[i].category} value={this.state.data[i].percentage} total={100} animate={true} showValue={true} />
+                 <ProgressBar key={this.state.data[i].category} value={this.calcPercentage(this.props.expenseData,value.values[0].nettoAmount)} total={100} animate={true} showValue={true} />
               <div className='progress-items-wrap'>
                 <div className='progress-items'>{ String(this.state.data[i].category).toUpperCase() }</div>
                     <div className='progress-items'>$ {value.values[0].nettoAmount }</div>

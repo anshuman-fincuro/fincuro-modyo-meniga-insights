@@ -175,3 +175,32 @@ export const setExpenseData = (token,dateValue = {}) => {
     });
   };
 };
+
+export const setFeedData = (token) => {
+  return (dispatch) => {
+    axios.get(`${API_URL}/feed?token=Bearer ${token}&dateFrom=2022-08-20&dateTo=2023-02-22&type=userevents`).then((response) => {
+      if (response.status === 200) {
+        dispatch({
+          type: TYPES.COMPONENT.ON_FEED_SUCCESS,
+          payload: { feedData: response.data.data},
+        });
+        console.log(response)
+      }
+      
+    });
+  };
+};
+export const setBillData = () => {
+  return (dispatch) => {
+    axios.get(`${API_URL}/upcoming`).then((response) => {
+      if (response.status === 200) {
+        dispatch({
+          type: TYPES.COMPONENT.ON_BILL_SUCCESS,
+          payload: { billData: response.data.data},
+        });
+        console.log(response)
+      }
+      
+    });
+  };
+};

@@ -9,6 +9,8 @@ const initialState = {
   spendingData: [],
   budgetData: [],
   expenseData: [],
+  feedData:[],
+  billData:[],
 };
 
 const componentReducer = (state = initialState, action) => {
@@ -46,6 +48,16 @@ const componentReducer = (state = initialState, action) => {
       return {
         ...state,
         expenseData: action.payload.expenseData,
+      };
+      case TYPES.COMPONENT.ON_FEED_SUCCESS:
+      return {
+        ...state,
+        feedData: action.payload.feedData,
+      };
+      case TYPES.COMPONENT.ON_BILL_SUCCESS:
+      return {
+        ...state,
+        billData: action.payload.billData,
       };
     default:
       return {

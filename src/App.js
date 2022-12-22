@@ -8,7 +8,7 @@ import { setAuthToken } from './store/actions/auth-action';
 import { SpinningCircles } from "react-loading-icons";
 import AccountDropdown from './components/AccountDropdown';
 import BugdetOverview from './components/BugdetOverview';
-import { setAccountsData, setCategoriesData, setMerchantData, setPlanningData, setSpendingData } from "./store/actions/component-action";
+import { setAccountsData, setCategoriesData, setFeedData, setMerchantData, setPlanningData, setSpendingData, setBillData} from "./store/actions/component-action";
 import CarouselNew from './components/CarouselNew';
 // import BubbleGraphs from './components/Insights/Charts/BubbleGraphs'
 import ProgressBars from './components/Insights/Charts/ProgressBars';
@@ -29,17 +29,19 @@ class App extends Component {
           this.props.setCategories(this.props.token),
           this.props.setSpending(this.props.token),
           this.props.setPlanning(this.props.token),
-          this.props.setMerchant(this.props.token)
+          this.props.setMerchant(this.props.token),
         ]
       );
     }
     
   }
-  async componentDidMount() {
-    await this.props.setAuth();
+ componentDidMount() {
+   this.props.setAuth();
+    this.props.setBill();
   }
 
   render() {
+
     var accountDropdownData = this.props.accountsData ?
       this.props.accountsData.filter((acc) => acc.accountCategory!=="Wallet") : [];
     return (
@@ -65,9 +67,10 @@ class App extends Component {
         {/*  */}
         <div className='budget-detail-wrap budget-flex'>
           <div className='unpaid-bill-wrap '>
-            <div className='bill-number-text'>5</div>
-            <span className='bold bill-content'>Unpaid bills in next 30 days £ 1,209.50</span>
-          </div>
+            {console.log(this.props.billData)}
+         <div className='bill-number-text'>5</div>
+           <span className='bold bill-content'>Unpaid bills in next 30 days £ 1,209.50</span>
+         </div>    
         </div>
         {/*  */}
          <div className='budget-container budget-flex expeses-container'>
@@ -100,7 +103,9 @@ const mapStateToProps = (state) => ({
   planningData: state.componentReducer.planningData,
   merchantData: state.componentReducer.merchantData,
   categoriesData: state.componentReducer.categoriesData,
-  spendingData: state.componentReducer.spendingData
+  spendingData: state.componentReducer.spendingData,
+  feedData: state.componentReducer.feedData,
+  billData: state.componentReducer.billData
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -110,7 +115,9 @@ const mapDispatchToProps = (dispatch) => {
     setCategories: (token) => dispatch(setCategoriesData(token)),
     setPlanning: (token) => dispatch(setPlanningData(token)),
     setSpending: (token) => dispatch(setSpendingData(token)),
-    setMerchant: (token) => dispatch(setMerchantData(token))
+    setMerchant: (token) => dispatch(setMerchantData(token)),
+    setFeed:(token) => dispatch(setFeedData(token)),
+    setBill:(token) => dispatch(setBillData(token)),
   };
 };
 

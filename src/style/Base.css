@@ -858,3 +858,6 @@ background-color: #f1f1ff;
         justify-content: center;
     }
 }
+.custom-width {
+    width: 100% !important;
+}

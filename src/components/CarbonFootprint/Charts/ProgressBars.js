@@ -31,10 +31,14 @@ class ProgressBarsExpenses extends Component {
       this.setState({ period: null, periodFrom: null, amountTo: null }, () => {
         this.props.setSpendingData(this.props.token, this.state);
       });
-    }
+    }   
+      
+    this.setState({progressData:[]})
   }
-  async componentDidMount() {
-
+  async componentDidMount() {   
+    this.calculateChartData();
+  }
+  calculateChartData(){
     const filteredData = [];
    
     let count = 0;
@@ -79,18 +83,21 @@ class ProgressBarsExpenses extends Component {
         });
       }
     }
-
+  }
+  componentDidUpdate(previousProps){
+    if(previousProps.spendingData !== this.props.spendingData) {   
+      this.calculateChartData();
+  }
   }
 
   render() {
     const { progressData } = this.state;
-    {console.log("progress",progressData)}
     const progressItems = [];
  
    
-    for (const every of progressData.slice(0, 5)) {
+    for (const every of this.state.progressData.slice(0, 5)) {
       progressItems.push(
-        <div className="carbonFootprint-progressBar">
+        <div className="carbonFootprint-progressBar custom-width">
           <ProgressBar key={every.category} value={every.percentage} total={100} animate={true} showValue={true} />
           <div className="progressBar-wrapper">
             <div className="progressBar-item"> { every.category.toUpperCase() } </div>

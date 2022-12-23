@@ -3,38 +3,40 @@ import { ProgressBar } from '@meniga/ui';
 
 import './../../../App.css';
 import './../../../style/Base.css';
-import { setCarbonData } from "../../../store/actions/component-action";
+import { setSpendingData } from "../../../store/actions/component-action";
 import { connect } from "react-redux";
 import DateFilter from "./../../Insights/DateFilter/DateFilter";
-
+import { getFromToDate } from "../../../utils";
 class ProgressBarsExpenses extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      progressData: [],
       periodFrom: null,
       periodTo: null,
       data: [],
       categoriesData: [],
-      spendingData: []
+      progressData: [],
     };
-   // this.calcPercentage = this.calcPercentage.bind(this);
   }
-  // dateOnChange(e) {
-  //   let dateFilter = {};
-  //   if (e) {
-  //     dateFilter = { dateFilter: e };
-  //     this.setState({ ...e }, () => {
-  //       this.props.setCarbonData(this.props.token, this.state);
-  //     });
-  //   } 
-  // }
+   dateOnChange(e) {
+    let dateFilter = {};
+    if (e) {
+      dateFilter = { dateFilter: e };
+      this.setState({ ...e }, () => {
+        this.props.setSpendingData(this.props.token, this.state);
+      });
+    } else {
+      this.setState({ period: null, periodFrom: null, amountTo: null }, () => {
+        this.props.setSpendingData(this.props.token, this.state);
+      });
+    }
+  }
   async componentDidMount() {
-    this.props.setCarbonData();
-    const filteredData = [];
 
+    const filteredData = [];
+   
     let count = 0;
     if(this.props.categoriesData.length !== 0) {
       for(const every of this.props.spendingData) {
@@ -77,11 +79,12 @@ class ProgressBarsExpenses extends Component {
         });
       }
     }
+
   }
 
   render() {
     const { progressData } = this.state;
-    {console.log(progressData)}
+    {console.log("progress",progressData)}
     const progressItems = [];
  
    
@@ -104,9 +107,9 @@ class ProgressBarsExpenses extends Component {
               <h3 className="bold">
                Carbon Footprint By Category
               </h3>
-     {/* <div className="budgetEquationContainer-select">     
+     <div className="budgetEquationContainer-select">     
             <DateFilter onChange={(date) => this.dateOnChange(date)}></DateFilter>        
-              </div> */}
+              </div>
             </div>
         { progressItems } 
       </div>
@@ -115,11 +118,11 @@ class ProgressBarsExpenses extends Component {
 }
 const mapStateToProps = (state) => ({
   token: state.authReducer.token,
-  carbonData: state.componentReducer.carbonData,
+  spendingData: state.componentReducer.spendingData,
 });
 const mapDispatchToProps = (dispatch) => {
   return {
-    setCarbonData: (token, value) => dispatch(setCarbonData(token, value)),
+    setSpendingData: (token, value) => dispatch(setSpendingData(token, value)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(ProgressBarsExpenses);

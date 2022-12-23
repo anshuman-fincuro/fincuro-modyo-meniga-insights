@@ -1,5 +1,6 @@
 import axios from 'axios';
 import TYPES from '../types';
+import {  getFromDate, getToDate } from "../../utils";
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -65,10 +66,18 @@ export const setPlanningData = (token) => {
   };
 };
 
-export const setSpendingData = (token) => {
+export const setSpendingData = (token,filter = {}) => {
+  let query = "";
+  let fromDate = getFromDate();
+  let toDate = getToDate();
+  if(filter.periodFrom  && filter.periodTo){
+    query += `&periodFrom=${filter.periodFrom}&periodTo=${filter.periodTo}`;
+  }else{
+     query+= `&periodFrom=${fromDate}&periodTo=${toDate}`;
+  }
   return (dispatch) => {
     axios
-      .get(`${API_URL}/transactions?token=Bearer ${token}&periodFrom=2021-12-02&periodTo=2022-12-01`)
+      .get(`${API_URL}/transactions?token=Bearer ${token}${query}`)
       .then((response) => {
         if (response.status === 200) {
           dispatch({
@@ -182,7 +191,7 @@ export const setFeedData = (token) => {
           type: TYPES.COMPONENT.ON_FEED_SUCCESS,
           payload: { feedData: response.data.data},
         });
-        console.log(response)
+    
       }
       
     });
@@ -196,7 +205,6 @@ export const setBillData = () => {
           type: TYPES.COMPONENT.ON_BILL_SUCCESS,
           payload: { billData: response.data.data},
         });
-        console.log(response)
       }
       
     });
@@ -211,7 +219,6 @@ export const setCarbonData = () => {
           type: TYPES.COMPONENT.ON_CARBON_SUCCESS,
           payload: { carbonData: response.data.data},
         });
-        console.log(response)
       }
       
     });

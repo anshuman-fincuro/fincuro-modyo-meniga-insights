@@ -34,7 +34,7 @@ class App extends Component {
       );
 
     }
-    this.props.setBill()
+   // this.props.setBill()
    
   }
  async componentDidMount() {

@@ -21,11 +21,16 @@ class CarouselNew extends Component {
   render() {
     return (
       <div className="carousel-wrapper">
+        {(this.props.feedData !== undefined) && 
           <Carousel autoPlay infiniteLoop showArrows={true}>
-<div className="carousel-child">             
-                  <h3>fhgjh</h3>
-                </div>
+            {this.props.feedData.map((value) => (
+                 <div className="carousel-child">             
+                 <h3>{value.title}</h3>
+                 <p>{value.body}</p>
+               </div>
+            ))}       
             </Carousel>
+  }
       </div>
     );
   }

@@ -3,6 +3,9 @@ import { ProgressBar } from '@meniga/ui';
 
 import './../../../App.css';
 import './../../../style/Base.css';
+import { setCarbonData } from "../../../store/actions/component-action";
+import { connect } from "react-redux";
+import DateFilter from "./../../Insights/DateFilter/DateFilter";
 
 class ProgressBarsExpenses extends Component {
 
@@ -10,11 +13,26 @@ class ProgressBarsExpenses extends Component {
     super(props);
 
     this.state = {
-      progressData: []
+      progressData: [],
+      periodFrom: null,
+      periodTo: null,
+      data: [],
+      categoriesData: [],
+      spendingData: []
     };
+   // this.calcPercentage = this.calcPercentage.bind(this);
   }
-
+  // dateOnChange(e) {
+  //   let dateFilter = {};
+  //   if (e) {
+  //     dateFilter = { dateFilter: e };
+  //     this.setState({ ...e }, () => {
+  //       this.props.setCarbonData(this.props.token, this.state);
+  //     });
+  //   } 
+  // }
   async componentDidMount() {
+    this.props.setCarbonData();
     const filteredData = [];
 
     let count = 0;
@@ -65,6 +83,8 @@ class ProgressBarsExpenses extends Component {
     const { progressData } = this.state;
     {console.log(progressData)}
     const progressItems = [];
+ 
+   
     for (const every of progressData.slice(0, 5)) {
       progressItems.push(
         <div className="carbonFootprint-progressBar">
@@ -78,11 +98,28 @@ class ProgressBarsExpenses extends Component {
     }
 
     return (
+     
       <div className="progressBar-item-wrap">
+             <div className="budgetEquationContainer-header-title">
+              <h3 className="bold">
+               Carbon Footprint By Category
+              </h3>
+     {/* <div className="budgetEquationContainer-select">     
+            <DateFilter onChange={(date) => this.dateOnChange(date)}></DateFilter>        
+              </div> */}
+            </div>
         { progressItems } 
       </div>
     );
   }
 }
-
-export default ProgressBarsExpenses;
+const mapStateToProps = (state) => ({
+  token: state.authReducer.token,
+  carbonData: state.componentReducer.carbonData,
+});
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setCarbonData: (token, value) => dispatch(setCarbonData(token, value)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(ProgressBarsExpenses);

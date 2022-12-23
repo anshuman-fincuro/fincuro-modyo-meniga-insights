@@ -32,18 +32,24 @@ class App extends Component {
           this.props.setMerchant(this.props.token),
         ]
       );
+
     }
-    
+    this.props.setBill()
+   
   }
- componentDidMount() {
-   this.props.setAuth();
-    this.props.setBill();
+ async componentDidMount() {
+    this.props.setAuth();
+    // if(this.props.billData.length > 0 ){
+    //   this.setState({billDatalength:this.props.billData})
+    //   console.log("this.props.billData",this.props.billData.length)
+    // }
   }
 
   render() {
-
     var accountDropdownData = this.props.accountsData ?
       this.props.accountsData.filter((acc) => acc.accountCategory!=="Wallet") : [];
+      const totalarray = this.props.billData !== undefined ? this.props.billData.map((val)=>(val.amount)) : ""
+      const sum =  totalarray.length > 0 ?totalarray.filter(val => val < 0).reduce((result,number)=> result+number): ""
     return (
       <div>
          { (this.props.token !== null && this.props.accountsData && this.props.categoriesData && this.props.spendingData && this.props.merchantData && this.props.planningData) ? 
@@ -59,6 +65,9 @@ class App extends Component {
         </div>
         </div>
       {/* account bar end */}
+      <div className='text-center'>
+        <h4>Events of Last 30 days</h4>
+      </div>
       <CarouselNew></CarouselNew>
       <div className='budget-detail-wrap'>
       <div className='budget-container budget-flex'>
@@ -67,9 +76,9 @@ class App extends Component {
         {/*  */}
         <div className='budget-detail-wrap budget-flex'>
           <div className='unpaid-bill-wrap '>
-            {console.log(this.props.billData)}
-         <div className='bill-number-text'>5</div>
-           <span className='bold bill-content'>Unpaid bills in next 30 days £ 1,209.50</span>
+            {console.log("this.props.billData",this.props.billData)}
+         <div className='bill-number-text'>{this.props.billData !== undefined ? this.props.billData.length : ""}</div>
+           <span className='bold bill-content'>Unpaid bills in next 30 days totalling £ {Math.abs(sum).toFixed(2)}</span>
          </div>    
         </div>
         {/*  */}
@@ -80,7 +89,7 @@ class App extends Component {
       {/* end */}
       <div className='top-merchants-wrap bubble-chart-center bar-chart-center p-3 col-12 col-lg-12'>
          <div className='merchants-wrapper'>
-          <HorizontalBar spendingData={this.props.spendingData} categoriesData={this.props.categoriesData}  />
+          {/* <HorizontalBar spendingData={this.props.spendingData} categoriesData={this.props.categoriesData}  /> */}
             <hr/>
           <ProgressBarsExpenses spendingData={this.props.spendingData} categoriesData={this.props.categoriesData} />
         </div>     

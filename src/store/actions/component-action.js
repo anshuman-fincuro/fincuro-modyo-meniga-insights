@@ -3,7 +3,7 @@ import TYPES from '../types';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
-export function getToDate(){
+export function getcurrentDate(){
 
   let newDate = new Date()
   let date = newDate.getDate();
@@ -12,11 +12,11 @@ export function getToDate(){
   return `${year}-${month<10?`0${month}`:`${month}`}-${date<10?`0${date}`:`${date}`}`
   }
 
-  export function getFromDate(){
+  export function getbeforeDate(){
 
     let newDate = new Date()
     let date = newDate.getDate();
-    let month = newDate.getMonth() -2;
+    let month = newDate.getMonth();
     let year = newDate.getFullYear();
     return `${year}-${month<10?`0${month}`:`${month}`}-${date<10?`0${date}`:`${date}`}`
     }
@@ -173,8 +173,10 @@ export const setExpenseData = (token,dateValue = {}) => {
 };
 
 export const setFeedData = (token) => {
+   const currentDate = getcurrentDate();
+   const beforeDate = getbeforeDate();
   return (dispatch) => {
-    axios.get(`${API_URL}/feed?token=Bearer ${token}&dateFrom=2022-08-20&dateTo=2023-02-22&type=userevents`).then((response) => {
+    axios.get(`${API_URL}/feed?token=Bearer ${token}&dateFrom=${beforeDate}&dateTo=${currentDate}&type=userevents`).then((response) => {
       if (response.status === 200) {
         dispatch({
           type: TYPES.COMPONENT.ON_FEED_SUCCESS,
@@ -193,6 +195,21 @@ export const setBillData = () => {
         dispatch({
           type: TYPES.COMPONENT.ON_BILL_SUCCESS,
           payload: { billData: response.data.data},
+        });
+        console.log(response)
+      }
+      
+    });
+  };
+};
+
+export const setCarbonData = () => {
+  return (dispatch) => {
+    axios.get(`${API_URL}/carbon/series`).then((response) => {
+      if (response.status === 200) {
+        dispatch({
+          type: TYPES.COMPONENT.ON_CARBON_SUCCESS,
+          payload: { carbonData: response.data.data},
         });
         console.log(response)
       }

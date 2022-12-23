@@ -15,19 +15,7 @@ class HorizontalBar extends Component {
       progressData: []
     };
   }
-  dateOnChange(e) {
-    let dateFilter = {};
-    if (e) {
-      dateFilter = { dateFilter: e };
-      this.setState({ ...e }, () => {
-        this.props.setSpendingData(this.props.token, this.state);
-      });
-    } else {
-      this.setState({ period: null, periodFrom: null, amountTo: null }, () => {
-        this.props.setSpendingData(this.props.token, this.state);
-      });
-    }
-  }
+ 
 
   async componentDidMount() {
     const filteredData = [];
@@ -95,10 +83,8 @@ class HorizontalBar extends Component {
     return (
       <div className="HSBar-container">
         <div>
-        <div className="HSbar-heading">Carbon Footprint by category</div>
-        <div className="budgetEquationContainer-select col-md-12 align-right">
-           <DateFilter onChange={(date) => this.dateOnChange(date)}></DateFilter> 
-        </div>
+
+       
         </div>
         <HSBar
           showTextDown

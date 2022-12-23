@@ -109,7 +109,7 @@ class BugdetOverview extends Component {
                             // style="white-space: nowrap;"
                           >
                             <span className="FormatCurrency-symbol">£ </span>
-                            <span className="FormatCurrency-value">{this.props.budgetData[1].statistics.total}</span>
+                            <span className="FormatCurrency-value">{(this.props.budgetData[1].statistics.total).toFixed(2)}</span>
                           </span>
                         </span>
                     </div>
@@ -128,7 +128,7 @@ class BugdetOverview extends Component {
                             // style="white-space: nowrap;"
                           >
                             <span className="FormatCurrency-symbol">£ </span>
-                            <span className="FormatCurrency-value">{this.props.budgetData[0].statistics.total}</span>
+                            <span className="FormatCurrency-value">{(this.props.budgetData[0].statistics.total).toFixed(2)}</span>
                           </span>
                         </span>
                     </div>
@@ -147,7 +147,7 @@ class BugdetOverview extends Component {
                             // style="white-space: nowrap;"
                           >
                             <span className="FormatCurrency-symbol">£ </span>
-                            <span className="FormatCurrency-value">{this.props.budgetData[1].statistics.total+this.props.budgetData[0].statistics.total}</span>
+                            <span className="FormatCurrency-value">{(this.props.budgetData[1].statistics.total+this.props.budgetData[0].statistics.total).toFixed(2)}</span>
                           </span>
                         </span>
                     </div>

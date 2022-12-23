@@ -11,6 +11,7 @@ const initialState = {
   expenseData: [],
   feedData:[],
   billData:[],
+  carbonData:[],
 };
 
 const componentReducer = (state = initialState, action) => {
@@ -59,6 +60,11 @@ const componentReducer = (state = initialState, action) => {
         ...state,
         billData: action.payload.billData,
       };
+      case TYPES.COMPONENT.ON_CARBON_SUCCESS:
+        return {
+          ...state,
+          carbonData: action.payload.carbonData,
+        };
     default:
       return {
         ...state,

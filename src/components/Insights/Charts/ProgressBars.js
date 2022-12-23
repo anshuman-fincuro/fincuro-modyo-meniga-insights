@@ -89,7 +89,7 @@ class ProgressBars extends Component {
   render() {
     const progressItems = [];
       // eslint-disable-next-line no-lone-blocks
-      {(this.props.expenseData !== undefined) ? (this.props.expenseData.length !== 0 )? ((this.props.expenseData.map((value,i)=>{
+      {(this.props.expenseData !== undefined) ? (this.props.expenseData.length !== 0 )? ((this.props.expenseData.slice(0,5).map((value,i)=>{
         progressItems.push(
               <div className='progress-wrapper'> 
                  <ProgressBar key={this.state.data[i].category} value={this.calcPercentage(this.props.expenseData,value.values[0].nettoAmount)} total={100} animate={true} showValue={true} />

@@ -754,11 +754,9 @@ background-color: #f1f1ff;
     border: 2px solid #4d4d4d;
  }
  .bubble-chart-center {
-    justify-content: center;
+    margin-left:50px;
  }
- .bar-chart-center{
-    padding: 30px 0px;
- }
+ 
 /*  media start */
 @media (max-width: 768px) {
     .bill-table-form-wrap {

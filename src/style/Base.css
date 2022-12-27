@@ -166,7 +166,7 @@
 .progressBar-item-wrap {
     flex-direction: column;
     flex-wrap: nowrap;
-    width:50%;
+    width:70%;
 }
 
 .lineChart-container {

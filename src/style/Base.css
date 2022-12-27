@@ -754,7 +754,7 @@ background-color: #f1f1ff;
     border: 2px solid #4d4d4d;
  }
  .bubble-chart-center {
-    justify-content: center;
+    margin-left: 50px;
  }
  
 /*  media start */

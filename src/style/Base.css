@@ -519,7 +519,7 @@ progress {
 }
 
 .merchants-left .progress {
-    width: 100%;
+    width: 70%;
 }
 
 .merchants-wrapper hr {
@@ -754,7 +754,7 @@ background-color: #f1f1ff;
     border: 2px solid #4d4d4d;
  }
  .bubble-chart-center {
-    margin-left:50px;
+    justify-content: center;
  }
  
 /*  media start */

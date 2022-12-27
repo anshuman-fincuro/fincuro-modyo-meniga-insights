@@ -1,6 +1,6 @@
 import axios from 'axios';
 import TYPES from '../types';
-import {  getFromDate, getToDate } from "../../utils";
+import { getFromToDate } from "../../utils";
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -67,9 +67,10 @@ export const setPlanningData = (token) => {
 };
 
 export const setSpendingData = (token,filter = {}) => {
+  console.log(getFromToDate("0"))
   let query = "";
-  let fromDate = getFromDate();
-  let toDate = getToDate();
+  let fromDate = getFromToDate("0").startDate;
+  let toDate = getFromToDate("0").endDate;
   if(filter.periodFrom  && filter.periodTo){
     query += `&periodFrom=${filter.periodFrom}&periodTo=${filter.periodTo}`;
   }else{

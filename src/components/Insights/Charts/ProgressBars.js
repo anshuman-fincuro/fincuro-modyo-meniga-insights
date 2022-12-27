@@ -6,6 +6,8 @@ import './../../../style/Base.css';
 import {setExpenseData} from "./../../../store/actions/component-action"
 import {connect} from "react-redux";
 import { getFromToDate } from "../../../utils";
+import { SpinningCircles } from "react-loading-icons";
+
 class ProgressBars extends Component {
 
   constructor(props) {
@@ -19,7 +21,6 @@ class ProgressBars extends Component {
     };
     this.calcPercentage = this.calcPercentage.bind(this);
   }
-  
   dateOnChange(e) {
     let dateFilter = {};
     if (e) {
@@ -29,54 +30,12 @@ class ProgressBars extends Component {
       });
     } 
   }
+
   async componentDidMount() {
-    const filteredData = [];
-    let count = 0;
-    if(this.props.categoriesData.length !== 0) {
-      for(const every of this.props.spendingData) {
-        const { categoryId, amount } = every;
-
-        const innerObj = {};
-        for(const category of this.props.categoriesData) {
-          const categoryFound = category.children.filter(x => x.id === categoryId);
-          if(categoryFound.length > 0) {
-            innerObj.category = category.name;
-          }
-        }
-
-        innerObj.amount = Math.abs(amount);
-        filteredData.push(innerObj);
-
-        count = count + 1;
-      }
-      const { startDate, endDate } = getFromToDate("0");    
-      this.props.setExpenseData(this.props.token, {periodFrom:startDate , periodTo:endDate, data: [], categoriesData: [], spendingData:[]});
-      
-
-      const resultantData = Array.from(filteredData.reduce((m, {category, amount}) => 
-        m.set(category, [...(m.get(category) || []), amount]), new Map
-        ), ([category, amount]) => ({category, amount})
-      );
-
-      const finalData = [];
-      let totalAmount = 0;
-      for(const every of resultantData) {
-        const innerObj = {
-          category: every.category, 
-          amount: Number(Number(every.amount.reduce((partialSum, a) => partialSum + a, 0)).toFixed(2))
-        };
-
-        totalAmount += Number(innerObj.amount);
-        finalData.push(innerObj);
-      }
-      console.log('finalData', finalData)
-      if(this.state.data.length === 0) {
-        this.setState({ data: 
-          finalData.map(x => { return { category: x.category, amount: x.amount, percentage: (x.amount/totalAmount * 100) } })
-        });
-      }
-    }
+    const { startDate, endDate } = getFromToDate("0");    
+    this.props.setExpenseData(this.props.token, {periodFrom:startDate , periodTo:endDate, data: [], categoriesData: [], spendingData:[]});
   }
+  
   calcPercentage(expensesList, expenseAmout){
     const finalData = [];
     expensesList.map((value,i)=>{
@@ -86,21 +45,51 @@ class ProgressBars extends Component {
     console.log('expensesList, expenseAmout', expensesList, expenseAmout,finalData, totalAmount)
     return (Math.abs(expenseAmout/totalAmount * 100));
   }
+  
   render() {
     const progressItems = [];
-      // eslint-disable-next-line no-lone-blocks
-      {(this.props.expenseData !== undefined) ? (this.props.expenseData.length !== 0 )? ((this.props.expenseData.slice(0,5).map((value,i)=>{
+    const expensearray = [
+      {category:"Home", amount:""},{category:"Cars & Transportation", amount:""},
+      {category:"Children", amount:""},{category:"Health & Beauty", amount:""},
+      {category:"Fees, Fines, Loans and Taxes", amount:""},{category:"Shopping & Services", amount:""},
+      {category:"Leisure & Lifestyle", amount:""}, {category:"Education", amount:""},
+      {category:"Vacation & Travel", amount:""},{category:"Uncategorized Expenses", amount:""},
+      {category:"Food & Household Items", amount:""},{category:"Insurance", amount:""},
+    ]
+      const expenseammountArray = (this.props.expenseData !== undefined) ? (this.props.expenseData.length !== 0 )? ((this.props.expenseData.map((value)=>
+      value.values[0].nettoAmount
+    )))
+    :(console.log("nolength")): console.log("nodata")
+   const finalArray = [];
+   (expenseammountArray !== undefined) ? ((expensearray.map((x,i)=>
+    finalArray.push({category:x.category,amount:expenseammountArray[i]})
+    )))
+    : console.log("nodata");
+
+      (expenseammountArray !== undefined) ?  ((finalArray.sort((a, b) => a.amount - b.amount).slice(0,5).map((x,i)=>{
         progressItems.push(
               <div className='progress-wrapper'> 
-                 <ProgressBar key={this.state.data[i].category} value={this.calcPercentage(this.props.expenseData,value.values[0].nettoAmount)} total={100} animate={true} showValue={true} />
+                 <ProgressBar key={x.category} value={this.calcPercentage(this.props.expenseData,expenseammountArray[i])} total={100} animate={true} showValue={true} />
               <div className='progress-items-wrap'>
-                <div className='progress-items'>{ String(this.state.data[i].category).toUpperCase() }</div>
-                    <div className='progress-items'>$ {value.values[0].nettoAmount }</div>
+                <div className='progress-items'>{ String(x.category).toUpperCase() }</div>
+                    <div className='progress-items'>$ {x.amount }</div>
                   </div>
               </div>
            );
       })))
-      :(console.log("nolength")): console.log("nodata")}
+      : <div className="spinning-icon">
+      <SpinningCircles
+        fill="#06bcee"
+        stroke="#06bcee"
+        strokeOpacity={1}
+        speed={1}
+        fillOpacity={1}
+        strokeWidth={3}
+        height="10em"
+      />
+      <div className="loading-text">Loading...</div>
+    </div>
+      
     return (
       <>
       <div className='expeses-wrapper'>

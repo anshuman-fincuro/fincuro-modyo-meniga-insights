@@ -34,8 +34,10 @@ class App extends Component {
       );
 
     }
-   // this.props.setBill()
-   
+    if(this.props.billData === undefined) {   
+      this.props.setBill()
+  }  
+
   }
  async componentDidMount() {
     this.props.setAuth();
@@ -46,6 +48,7 @@ class App extends Component {
   }
 
   render() {
+    
     var accountDropdownData = this.props.accountsData ?
       this.props.accountsData.filter((acc) => acc.accountCategory!=="Wallet") : [];
       const totalarray = this.props.billData !== undefined ? this.props.billData.map((val)=>(val.amount)) : ""

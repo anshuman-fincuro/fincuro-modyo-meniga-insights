@@ -80,7 +80,7 @@ export const getToDate = () => {
 export const getFromDate = () => {
   let newDate = new Date();
   let date = newDate.getDate();
-  let month = newDate.getMonth() - 2;
+  let month = newDate.getMonth();
   let year = newDate.getFullYear();
   return `${year}-${month < 10 ? `0${month}` : `${month}`}-${
     date < 10 ? `0${date}` : `${date}`

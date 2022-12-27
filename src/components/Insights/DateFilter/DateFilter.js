@@ -33,7 +33,7 @@ function DateFilter({ onChange }) {
         >
           <option value="0">This month</option>
           <option value="1">Last month</option>
-          <option value="3" selected>Last 3 months</option>
+          <option value="3" >Last 3 months</option>
           <option value="6">Last 6 months</option>
           <option value="12">Last 12 months</option>
           <option value="thisYear">This year</option>

@@ -72,7 +72,7 @@ class ProgressBars extends Component {
                  <ProgressBar key={x.category} value={this.calcPercentage(this.props.expenseData,expenseammountArray[i])} total={100} animate={true} showValue={true} />
               <div className='progress-items-wrap'>
                 <div className='progress-items'>{ String(x.category).toUpperCase() }</div>
-                    <div className='progress-items'>$ {x.amount }</div>
+                    <div className='progress-items'>£ {x.amount }</div>
                   </div>
               </div>
            );

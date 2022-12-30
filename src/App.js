@@ -80,7 +80,7 @@ class App extends Component {
         <div className='budget-detail-wrap budget-flex'>
           <div className='unpaid-bill-wrap '>
             {console.log("this.props.billData",this.props.billData)}
-         <div className='bill-number-text'>{this.props.billData !== undefined ? this.props.billData.length : ""}</div>
+         <div className='bill-number-text'>{this.props.billData !== undefined ? totalarray.filter(val => val < 0).length : ""}</div>
            <span className='bold bill-content'>Unpaid bills in next 30 days totalling £ {Math.abs(sum).toFixed(2)}</span>
          </div>    
         </div>

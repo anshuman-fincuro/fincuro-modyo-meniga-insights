@@ -18,8 +18,14 @@ export function getcurrentDate(){
     let newDate = new Date()
     let date = newDate.getDate();
     let month = newDate.getMonth();
-    let year = newDate.getFullYear();
-    return `${year}-${month<10?`0${month}`:`${month}`}-${date<10?`0${date}`:`${date}`}`
+    let newMonth = "";
+    let year = "";
+    if (month === 0){
+      newMonth = 12
+     year = newDate.getFullYear() - 1;
+    }
+    
+    return `${year}-${newMonth<10?`0${newMonth}`:`${newMonth}`}-${date<10?`0${date}`:`${date}`}`
     }
 export const setAccountsData = (token) => {
   return (dispatch) => {

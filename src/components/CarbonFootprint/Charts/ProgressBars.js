@@ -92,9 +92,7 @@ class ProgressBarsExpenses extends Component {
 
   render() {
     const { progressData } = this.state;
-    const progressItems = [];
- 
-   
+    const progressItems = [];  
     for (const every of this.state.progressData.slice(0, 5)) {
       progressItems.push(
         <div className="carbonFootprint-progressBar custom-width">
@@ -118,7 +116,10 @@ class ProgressBarsExpenses extends Component {
             <DateFilter onChange={(date) => this.dateOnChange(date)}></DateFilter>        
               </div>
             </div>
-        { progressItems } 
+            <div style={{height:300}}>
+            { progressItems } 
+            </div>
+        
       </div>
     );
   }

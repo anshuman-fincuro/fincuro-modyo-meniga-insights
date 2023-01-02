@@ -69,7 +69,7 @@ class ProgressBars extends Component {
       (expenseammountArray !== undefined) ?  ((finalArray.sort((a, b) => a.amount - b.amount).slice(0,5).map((x,i)=>{
         progressItems.push(
               <div className='progress-wrapper'> 
-                 <ProgressBar key={x.category} value={this.calcPercentage(this.props.expenseData,expenseammountArray[i])} total={100} animate={true} showValue={true} />
+                 <ProgressBar key={x.category} value={this.calcPercentage(this.props.expenseData,x.amount)} total={100} animate={true} showValue={true} />
               <div className='progress-items-wrap'>
                 <div className='progress-items'>{ String(x.category).toUpperCase() }</div>
                     <div className='progress-items'>£ {x.amount }</div>

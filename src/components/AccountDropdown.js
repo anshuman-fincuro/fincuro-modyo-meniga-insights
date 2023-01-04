@@ -36,7 +36,7 @@ class AccountDropdown extends Component {
                 <div className="amountWithLabel">
                   <span className="account-label">Acc.Name - {x.name}
                   </span>
-                <span className="account-label">Acc.No - {x.metadata[1].value}
+                <span className="accountnumber-label">{x.metadata[1].value}
                   </span>
                   </div>
             <span className="arrow-icon">

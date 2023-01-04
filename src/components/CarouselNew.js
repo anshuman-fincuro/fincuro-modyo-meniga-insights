@@ -24,7 +24,8 @@ class CarouselNew extends Component {
         {(this.props.feedData !== undefined) && 
           <Carousel autoPlay infiniteLoop showArrows={true}>
             {this.props.feedData.map((value) => (
-                 <div className="carousel-child">             
+                 <div className="carousel-child">   
+                 <p>{value.messageData.accountName}</p>          
                  <h3>{value.title}</h3>
                  <p>{value.body}</p>
                </div>
